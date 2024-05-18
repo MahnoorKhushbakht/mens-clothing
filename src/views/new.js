@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { Button, Box } from '@mui/material';
 import { HStack, VStack } from '@chakra-ui/react';
+import RefreshBtn from '@/components/RefreshBtn';
 
 function Form({slug}) {
 
@@ -56,8 +57,31 @@ console.log('slug',slug)
   return (
  
     <form onSubmit={handleSubmit}>
-    <HStack spacing={2} >
-    <TextField type="string" name="slug" value={slug} />
+                
+               <VStack display='flex' flexDirection='column' justifyContent='flex-start' alignItems='flex-start'>
+<Box>
+    <Typography sx={{ color: 'white' }} component="legend">Rating</Typography>
+    <Rating
+        size='large'
+        sx={{
+            '& .MuiRating-iconFilled': {
+                color: 'yellow',
+            },
+            '& .MuiRating-iconEmpty': {
+                color: 'white', 
+            },
+        }}
+        id="rating"
+        name="rating"
+        value={formData.rating}
+        onChange={handleChange}
+        required
+        margintop='2'
+    />
+</Box>
+</VStack>
+    <HStack spacing={4} >
+    <TextField type="hidden" name="slug" value={slug} />
       <TextField
         id="name"
         label="Name"
@@ -120,33 +144,13 @@ console.log('slug',slug)
       />
 
 
-              </HStack>
-               <VStack display='flex' flexDirection='column' justifyContent='flex-start' alignItems='flex-start'>
-<Box>
-    <Typography sx={{ color: 'white' }} component="legend">Rating</Typography>
-    <Rating
-        size='large'
-        sx={{
-            '& .MuiRating-iconFilled': {
-                color: 'yellow',
-            },
-            '& .MuiRating-iconEmpty': {
-                color: 'white', 
-            },
-        }}
-        id="rating"
-        name="rating"
-        value={formData.rating}
-        onChange={handleChange}
-        required
-        margintop='2'
-    />
-</Box>
+</HStack>
+<HStack spacing={4} margintop='2px'>
 <Button type="submit" variant="contained" color="success">
     Submit
 </Button>
-</VStack>
-
+<RefreshBtn/>
+</HStack>
 
   </form>
   );

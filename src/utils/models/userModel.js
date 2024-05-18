@@ -18,13 +18,14 @@ const fieldSchema = new Schema({
     required: true,
   },
 }, {
-  timestamps: true, 
+  createdAt: { type: Date, default: Date.now },
   versionKey: false, 
 });
 
 
-fieldSchema.index({ slug: 1 });
+
 
 const Field = models.Field || model('Field', fieldSchema);
+
 
 export default Field;

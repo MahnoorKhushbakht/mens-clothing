@@ -9,8 +9,8 @@ async function dbConnect() {
   }
 
   const db = await mongoose.connect(uri,{ 
-    serverSelectionTimeoutMS: 60000, // Increase timeout to handle slow connections
-    connectTimeoutMS: 60000, // Increase connection timeout
+    serverSelectionTimeoutMS: 60000, 
+    connectTimeoutMS: 60000, 
   });
 
   connection.isConnected = db.connections[0].readyState;

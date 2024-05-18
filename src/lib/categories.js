@@ -37,6 +37,4 @@ export async function getComments(slug) {
 
     return filteredPosts;
 }
-// { cache: 'no-store' }
 
-// const slug = parts[1].trim().replace(/^"(.*)"$/, '$1');

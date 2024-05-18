@@ -2,6 +2,7 @@ import Field from '@/utils/models/userModel';
 import dbConnect from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 
+
 export async function GET() {
     await dbConnect();
     try {
@@ -14,14 +15,12 @@ export async function GET() {
 }
 export async function POST(request) {
     try {
-        const body = await request.json();
-        console.log('body',body)
-        const { name, comment, rating, slug } = body; // Ensure that slug is properly extracted
+        const body = await request.json()
+        const { name, comment, rating, slug } = body; 
         console.log("Received POST request with data:", name, comment, rating, slug);
         
         await dbConnect();
         const field = await Field.create({ name, comment, rating, slug });
-        // field.dropIndex({ "slug": 1 });
         console.log("Saved field:", field);
         
         return NextResponse.json({ data: field });
