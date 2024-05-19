@@ -13,6 +13,8 @@ export default async function CommentList({slug}) {
 
     return (
        <>
+       <h2 className='text-white mt-8 font-bold antialiased'>Real People, Real Style</h2>
+       <p className='text-white antialiased'>Explore our customers <strong className="text-amber-500 ">reviews</strong> to see how they’re loving our products. Get inspired to enhance your <strong className="text-amber-500">wardrobe</strong>.</p>
           {((posts.length === 0)) ? <div className="mb-4 bg-gray-800 text-white rounded-lg p-4 shadow-md  italic mt-3">No comments yet.</div>
           :
           <div className="flex flex-col scrollContainer">

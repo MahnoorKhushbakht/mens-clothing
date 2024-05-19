@@ -7,7 +7,7 @@ const RefreshBtn = () =>{
     };
     return(
         <div>
-            <Button  variant="contained" color="success" onClick={handleRefresh}>Newest Comment</Button>
+            <Button  type='submit' color='secondary' variant="contained" onClick={handleRefresh}>Newest Comment</Button>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { getPosts } from '@/lib/categories';
 import { parseHTMLContent } from '@/lib/content';
 import Form from '@/views/new';
 import CommentList from '@/components/CommentList';
+import ImageZoom from '@/components/ImageZoom';
 
 
 export default async function Details({ params: { slug } }) {
@@ -14,6 +15,7 @@ export default async function Details({ params: { slug } }) {
           <div key={post.id}>
             {parseHTMLContent(post.content.rendered).map((content, index) => (
               <div key={index} className="flex flex-col md:flex-row  justify-center items-center">
+                <ImageZoom>
                 <img
                   boxsize={{ base:'80%',md:'40%'}}
                   margintop={{ base:'10px',md:'0px'}}
@@ -21,6 +23,7 @@ export default async function Details({ params: { slug } }) {
                   alt='Dan Abramov'
                   className='drop-shadow-2xl '
                 />
+                </ImageZoom>
                 <div className="max-w-full w-full md:w-60% ml-0 md:ml-8 mt-4 md:mt-0">
                   <h2 className="text-lg font-bold text-white uppercase">{post.title.rendered}</h2>
                   <p className="text-white">{content.summary}</p>

@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import { Button, Box } from '@mui/material';
 import { HStack, VStack } from '@chakra-ui/react';
 import RefreshBtn from '@/components/RefreshBtn';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import CommentIcon from '@mui/icons-material/Comment';
 
 function Form({slug}) {
 
@@ -13,17 +16,17 @@ function Form({slug}) {
     name: '',
     comment: '',
     rating: 0,
-    slug: slug // Ensure that slug is set correctly
+    slug: slug 
 });
 
-console.log('form',formData.slug)
-console.log('details',slug)
+
+
 const handleChange = (event) => {
   const { name, value } = event.target;
   setFormData((prevFormData) => ({
     ...prevFormData,
     [name]: name === 'rating' ? parseInt(value) : value,
-    slug: slug // Include the slug value
+    slug: slug 
   }));
 };
 
@@ -42,15 +45,20 @@ console.log('slug',slug)
       });
       
       if (response.ok) {
-        alert('Data saved successfully!');
+        <Alert severity="success">
+        <AlertTitle>Success</AlertTitle>
+       Data Saved Successfuly
+      </Alert>
        
         setFormData({ name: '', comment: '', rating: 0 });
       } else {
         throw new Error('Server responded with an error');
       }
     } catch (error) {
-      console.error('Error saving data:', error);
-      alert('Something went wrong! Please try again later.');
+           <Alert severity="error">
+        <AlertTitle>Error</AlertTitle>
+        Something went wrong! Please try again later.
+      </Alert>
     }
   };
 
@@ -145,9 +153,9 @@ console.log('slug',slug)
 
 
 </HStack>
-<HStack spacing={4} margintop='2px'>
-<Button type="submit" variant="contained" color="success">
-    Submit
+<HStack spacing={4} className='mt-2 mb-2'>
+<Button type='submit' color='success' variant="contained" endIcon={<CommentIcon />}>
+  Comment
 </Button>
 <RefreshBtn/>
 </HStack>

@@ -1,5 +1,5 @@
 'use client'
-import { Wrap, WrapItem, Button } from '@chakra-ui/react';
+import { Wrap, WrapItem, Button, ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 
 export default function Buttons() {
@@ -15,7 +15,8 @@ export default function Buttons() {
   };
 
   return (
-    <Wrap spacing={4}>
+    <ChakraProvider>
+    <Wrap spacing={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <WrapItem>
         <Button
         className='transition duration-700 ease-in-out'
@@ -41,6 +42,7 @@ export default function Buttons() {
         </Button>
       </WrapItem>
       </Wrap>
+      </ChakraProvider>
   );
 }
 
