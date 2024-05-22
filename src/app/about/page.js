@@ -1,8 +1,8 @@
 
 export default function AboutPage(){
     return(
-      <div className="bg-gradient-to-r from-gray-800 to-gray-950 backdrop-opacity-10 p-10 bg-cover flex flex-col text-gray-300">
-          <div className='border-4 border-gray-800/50 shadow-lg shadow-gray-300/40'>
+      <div className="bg-gradient-to-r min-h-screen justify-center items-center  from-gray-800 to-gray-950 backdrop-opacity-10 p-10 bg-cover flex flex-col text-gray-300">
+          {/* <div className='border-4 border-gray-800/50 shadow-lg shadow-gray-300/40'> */}
             <div spacing={1} align="start" px={4}>
               <h2 className='text-lg md:text-xl antialiased font-bold text-shadow'>About Us:</h2>
               <p className="text-sm md:text-base">Welcome to Tailor Gents, where style meets sophistication, and elegance intertwines with comfort. As a premier destination for men's clothing, we are dedicated to redefining the modern gentleman's wardrobe experience.</p>
@@ -14,6 +14,6 @@ export default function AboutPage(){
               <p className="text-sm md:text-base">Excellence is the cornerstone of everything we do at Tailor Gents. From our finely curated selection of clothing to our unparalleled customer service, we are dedicated to exceeding expectations and setting the standard for sartorial excellence. With Tailor Gents, you can expect nothing less than the finest quality, impeccable craftsmanship, and timeless style.</p>
             </div>
           </div>
-      </div>
+      // </div>
     );
 }

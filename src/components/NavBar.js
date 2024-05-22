@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Link from 'next/link';
 import Searchbar from './Searchbar';
+import Searchbox from './SearchBox';
 
 function BasicExample() {
   return (
@@ -17,7 +18,7 @@ function BasicExample() {
             <Nav.Link className='text-white text-center' as={Link} href="/">Home</Nav.Link>
             <Nav.Link className='text-white text-center' as={Link} href="/about">About</Nav.Link>
             <Nav.Link className='text-white text-center' as={Link} href="/contact">Contact</Nav.Link>
-            <NavDropdown id="basic-nav-dropdown" title={<span className="text-white">Categories</span>}> {/* Apply text-white class to the span */}
+            <NavDropdown id="basic-nav-dropdown" title={<span className="text-white">Categories</span>}> 
               <NavDropdown.Item as={Link} href="/category/formal-wear" >Formal Wear</NavDropdown.Item>
               <NavDropdown.Item as={Link} href="/category/casual-wear" >Casual Wear</NavDropdown.Item>
               <NavDropdown.Item as={Link} href="/category/accessories" >Accessories</NavDropdown.Item>
@@ -28,7 +29,7 @@ function BasicExample() {
             </NavDropdown>
           </Nav>
           <div className="d-flex me-2 justify-center">
-          <Searchbar/>
+          <Searchbox/>
           </div>
         </Navbar.Collapse>
       </Container>

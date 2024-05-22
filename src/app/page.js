@@ -1,4 +1,5 @@
 import Buttons from '@/components/Buttons';
+import SearchBox from '@/components/SearchBox';
 
 
 export default function HomePage(){

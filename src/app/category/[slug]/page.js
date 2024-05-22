@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardData from '@/components/CardContent';
+import { notFound } from 'next/navigation';
 
 
 
@@ -21,11 +22,16 @@ export default async function ReviewPage({ params: { slug } }) {
         const posts = await getCategories(slug);
      
 
-
+if(!posts){
+  notFound()
+}
 
   return (
     <div className="bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen flex flex-col justify-center items-center">
-      <Stack
+
+              {((posts.length === 0)) ? notFound()
+        : 
+        <Stack
         spacing={10}
         justify="center"
         align="center"
@@ -64,6 +70,7 @@ export default async function ReviewPage({ params: { slug } }) {
           </Box>
         ))}
       </Stack>
+}
     </div>
   );
 }

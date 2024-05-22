@@ -3,14 +3,20 @@ import { parseHTMLContent } from '@/lib/content';
 import Form from '@/views/new';
 import CommentList from '@/components/CommentList';
 import ImageZoom from '@/components/ImageZoom';
-
+import { Skeleton } from '@mui/material';
+import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
 
 export default async function Details({ params: { slug } }) {
   const posts = await getPosts(slug);
-
+// if (!posts){
+//   notFound()
+// }
   return (
     <div className="bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen">
-      <div className="flex flex-col p-8">
+      {((posts.length === 0)) ? notFound()
+        : 
+        <div className="flex flex-col p-8">
         {posts.map((post) => (
           <div key={post.id}>
             {parseHTMLContent(post.content.rendered).map((content, index) => (
@@ -37,9 +43,14 @@ export default async function Details({ params: { slug } }) {
         <div className="mt-6">
           <h2 className="text-lg font-bold text-white uppercase">Leave a Review</h2>
           <Form slug={slug}  />
+          <Suspense fallback={<Skeleton animation='wave'/>}>
           <CommentList slug={slug}/>
+          </Suspense>
         </div>
-      </div>
+        </div>
+}
+
+   
     </div>
   );
 }

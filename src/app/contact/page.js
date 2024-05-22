@@ -62,8 +62,8 @@ const Contact = () => {
   const cardStyle = {
     backgroundColor: '#d1d5db',
     border: 'transparent',
-    maxWidth: { xs: '90%', md: '70%' },
-    width: { xs: '90%', md: '70%' },
+    width: { xs: '90%', md: '90%' },
+    height: { xs: '80%', md: '80%' },
   };
 
   const textStyle = {
@@ -71,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <div className='bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen p-10  ' >
+    <div className='bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen p-10 justify-center items-center  ' >
       <Box display="flex" flexDirection={'column'} justifyContent="center" alignItems="center"  marginBottom='50px'>
         <Card
           variant="outlined"

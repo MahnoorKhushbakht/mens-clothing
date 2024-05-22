@@ -38,3 +38,18 @@ export async function getComments(slug) {
     return filteredPosts;
 }
 
+// export async function getSearch() {
+//     const postsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL_WP}posts`);
+//     const posts = await postsResponse.json();
+//     return posts.map((post) => post);
+// }
+
+export async function getSearch(slug) {
+    const postsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL_WP}posts?slug=${slug}`);
+    const posts = await postsResponse.json();
+    return posts.map((post) => ({
+      title: post.title.rendered,
+      slug: post.slug
+    }));
+  }
+  
