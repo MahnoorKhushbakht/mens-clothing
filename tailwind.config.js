@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "bg-gradient-to-r from-cyan-500 to-blue-500",
-        // 'pattern': "url('./img/mensbg.jpg')",
+        'hero-pattern': "url('./img/pattern.png')",
+        'pattern': "url('./img/mensbg.jpg')",
       },
       colors: {
         rust: '#A73928', // Define a custom color named "rust"

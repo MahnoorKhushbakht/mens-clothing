@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <body className="bg-gradient-to-r from-gray-800 to-gray-950" >
         <header>
           <NavBar/>
         </header>

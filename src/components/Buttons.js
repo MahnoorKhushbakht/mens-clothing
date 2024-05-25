@@ -1,48 +1,32 @@
-'use client'
-import { Wrap, WrapItem, Button, ChakraProvider } from '@chakra-ui/react';
-import React from 'react';
+
 
 export default function Buttons() {
-  const handleCallUsClick = () => {
-    window.location.href = 'tel:+923483715545';
-  };
+  // const handleCallUsClick = () => {
+  //   window.location.href = 'tel:+923483715545';
+  // };
 
-  const handleContactUsClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const handleContactUsClick = () => {
+  //   const contactSection = document.getElementById('contact');
+  //   if (contactSection) {
+  //     contactSection.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
 
   return (
-    <ChakraProvider>
-    <Wrap spacing={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <WrapItem>
-        <Button
-        className='transition duration-700 ease-in-out'
-          size='lg'
-          color='white'
-          backgroundColor='#1f2937'
-          variant='solid'
-          onClick={handleCallUsClick}
-        >
-          Call Us
-        </Button>
-      </WrapItem>
-      <WrapItem>
-        <Button
-         className='transition duration-700 ease-in-out'
-          size='lg'
-          color='white'
-          backgroundColor='#1f2937'
-          variant='solid'
-          onClick={handleContactUsClick}
-        >
-          Contact Us
-        </Button>
-      </WrapItem>
-      </Wrap>
-      </ChakraProvider>
+    <div className="p-2 space-x-4 flex justify-center align-middle">
+           <button type="submit" 
+        className="bg-gray-400 rounded px-2 py-1 self-center
+                   text-gray-800 w-32 hover:bg-gray-200
+                   disabled:bg-slate-500 disabled:cursor-not-allowed">
+        Call Us
+      </button>
+      <button type="submit" 
+        className="bg-gray-400 rounded px-2 py-1 self-center
+                   text-gray-800 w-32 hover:bg-gray-200
+                   disabled:bg-slate-500 disabled:cursor-not-allowed">
+        Contact Us
+      </button>
+      </div>
   );
 }
 

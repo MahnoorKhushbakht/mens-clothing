@@ -1,21 +1,34 @@
 import Link from 'next/link';
+import Paper from '@mui/material/Paper';
+import Layout from '@/components/Layout';
 
 export default function Category() {
+  const category = [
+    { slug: 'formal-wear', name: 'Formal Wear' },
+    { slug: 'casual-wear', name: 'Casual Wear' },
+    { slug: 'accessories', name: 'Accessories' },
+  ];
+
   return (
-    <>
-      <h1>Category</h1>
-      <ul>
-        <li>
-          <Link href="/category/formal-wear">
-            Formal Wear
-          </Link>
-        </li>
-        <li>
-        <Link href="/category/casual-wear">
-            Casual Wear
-          </Link>
-        </li>
+    <Layout>
+      <h1 className='mb-4'>Categories!!</h1>
+      <p className="text-center italic mb-6 w-4/5">
+      Explore now to elevate your wardrobe with the latest trends and timeless classics!
+      </p>
+      <ul className='flex flex-row space-x-4'>
+        {category.map((categoryItem) => (
+          <li key={categoryItem.slug}>
+            <Link href={`/category/${categoryItem.slug}`} style={{ textDecoration: 'none' }}>
+              <Paper 
+                className='drop-shadow-sm w-32 h-24 flex items-center justify-center bg-gray-200 text-gray-800 hover:bg-gray-400 disabled:bg-slate-500' 
+                elevation={3}
+              >
+                {categoryItem.name}
+              </Paper>
+            </Link>
+          </li>
+        ))}
       </ul>
-    </>
+    </Layout>
   );
 }

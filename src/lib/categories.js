@@ -14,7 +14,12 @@ export async function getCategories(slug) {
     const posts = await postsResponse.json();
     return posts;
 }
-
+// export async function getCategory() {
+//     const postsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL_WP}posts?categories`,
+//     { next: { revalidate: 36 } });
+//     const category = await postsResponse.json();
+//     return category;
+// }
 export async function getPosts(slug) {
     const postsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL_WP}posts?slug=${slug}`,
     { next: { revalidate: 36 } });
