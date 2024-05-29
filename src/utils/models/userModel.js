@@ -1,11 +1,13 @@
+import Sign from '@/utils/models/signModel';
 import { Schema, model, models } from 'mongoose';
 
 
 const fieldSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
+  user_id: { type: Schema.Types.ObjectId, ref: "Sign" }, // Array of references to Field documents
+  // name: {
+  //   type: String,
+  //   required: true,
+  // },
   comment: {
     type: String,
   },
@@ -23,7 +25,7 @@ const fieldSchema = new Schema({
 });
 
 
-
+console.log('user_id saved',user_id)
 
 const Field = models.Field || model('Field', fieldSchema);
 

@@ -10,12 +10,13 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import CommentIcon from '@mui/icons-material/Comment';
 
-function Form({ slug }) {
+function Form({ slug, userName}) {
   const [formData, setFormData] = useState({
-    name: '',
+    name: userName,
     comment: '',
     rating: 0,
-    slug: slug
+    slug: slug,
+    
   });
 
   const [alert, setAlert] = useState({ message: '', type: '' });
@@ -25,8 +26,7 @@ function Form({ slug }) {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: name === 'rating' ? parseInt(value) : value,
-      slug: slug
+      [name]: name === 'rating' ? parseInt(value) : value
     }));
   };
 
@@ -46,7 +46,7 @@ function Form({ slug }) {
 
       if (response.ok) {
         setAlert({ message: 'Data saved successfully!', type: 'success' });
-        setFormData({ name: '', comment: '', rating: 0, slug: slug });
+        setFormData({ name: userName, comment: '', rating: 0, slug: slug});
       } else {
         throw new Error('Server responded with an error');
       }
@@ -62,6 +62,7 @@ function Form({ slug }) {
       setAlert({ message: '', type: '' });
     }, 3000);
   };
+
   return (
     <div>
       {alert.message && (
@@ -99,6 +100,7 @@ function Form({ slug }) {
         </VStack>
         <HStack spacing={4}>
           <TextField type="hidden" name="slug" value={slug} />
+          
           <TextField
             id="name"
             label="Name"
@@ -106,7 +108,7 @@ function Form({ slug }) {
             type="text"
             name="name"
             size="small"
-            value={formData.name}
+            value={userName}
             onChange={handleChange}
             required
             sx={{
@@ -162,7 +164,6 @@ function Form({ slug }) {
           <Button type='submit' color='success' variant="contained" endIcon={<CommentIcon />}>
             Comment
           </Button>
-        
         </HStack>
       </form>
       <RefreshBtn />

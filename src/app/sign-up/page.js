@@ -1,21 +1,21 @@
 
 import Layout from '@/components/Layout';
-import SignInForm from '@/components/SignInForm';
+import SignUpForm from '@/components/SignUpForm';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Sign In',
+  title: 'Sign Up',
 };
 
 export default function SignInPage() {
   return (
   <Layout>
-      <h1>Sign In</h1>
-      <SignInForm />
+      <h1>Sign Up</h1>
+      <SignUpForm/>
       <div className="py-3">
-        Not yet registered?{' '}
-        <Link href="/sign-up" className="text-gray-800 hover:underline">
-          Sign Up
+        Registered?{' '}
+        <Link href="/sign-in" className="text-gray-800 hover:underline">
+          Sign In
         </Link> instead
       </div>
       </Layout>

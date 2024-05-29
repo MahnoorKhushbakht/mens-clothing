@@ -5,9 +5,9 @@ const JWT_SECRET = new TextEncoder().encode(process.env.NEXT_PUBLIC_API_JWT);
 const JWT_COOKIE = 'sessionToken';
 const JWT_DURATION = 14 * 24 * 60 * 60 * 1000; // 2 weeks
 
-export async function setSessionCookie(user) {
+export async function setSessionCookie({ id, email, name }) {
     const expirationTime = new Date(Date.now() + JWT_DURATION);
-    const sessionToken = await new SignJWT(user)
+    const sessionToken = await new SignJWT({ id, email, name })
       .setProtectedHeader({ alg: 'HS256' })
       .setExpirationTime(expirationTime)
       .sign(JWT_SECRET);

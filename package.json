@@ -24,6 +24,7 @@
     "@reactutils/use-debounce": "^1.0.1",
     "animate.css": "^4.1.1",
     "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
     "cheerio": "^1.0.0-rc.12",
     "debounce": "^2.0.0",

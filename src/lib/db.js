@@ -8,7 +8,7 @@ async function dbConnect() {
     return;
   }
 
-  const db = await mongoose.connect(uri,{ 
+ const db = await mongoose.connect(uri,{ 
     serverSelectionTimeoutMS: 5000, // 5 seconds timeout
     connectTimeoutMS: 5000, // 5 seconds timeout
     socketTimeoutMS: 45000, // 45 seconds timeout for socket operations

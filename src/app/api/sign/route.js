@@ -1,12 +1,13 @@
-import {Comment} from '@/utils/models/Schema'
+import {Sign} from '@/utils/models/Schema'
 import dbConnect from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
-
+import { setSessionCookie } from '@/lib/auth';
+import {  hash } from 'bcrypt';
 export async function GET() {
     await dbConnect();
     try {
-        const comments = await Comment.find({});
-        return NextResponse.json({ data: comments });
+        const sign = await Sign.find({});
+        return NextResponse.json({ data: sign });
     } catch (error) {
         console.error("GET Error:", error);
         return NextResponse.status(500).json({ error: error.message });
@@ -16,11 +17,15 @@ export async function GET() {
 export async function POST(request) {
     try {
         const body = await request.json();
-        const { firstName,lastName,message, email } = body;
+        const { name,email,password } = body;
+        
+        const passwordHash = await hash(password, 10);
+        await setSessionCookie({ name,email})
         await dbConnect();
-        const comment = await Comment.create({ firstName,lastName,message, email });
-        console.log("Saved comment:", comment);
-        return NextResponse.json({ data: comment });
+        const sign = await Sign.create({ name,email,passwordHash});
+        console.log("Saved sign:", sign);
+        
+        return NextResponse.json({ data: sign });
     } catch (error) {
         console.error("POST Error:", error);
         return NextResponse.status(500).json({ error: error.message });

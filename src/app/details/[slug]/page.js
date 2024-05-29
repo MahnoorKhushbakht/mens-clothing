@@ -6,8 +6,11 @@ import ImageZoom from '@/components/ImageZoom';
 import { Skeleton } from '@mui/material';
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
+import Link from 'next/link'; 
+import { getUserFromSession } from '@/lib/auth';
 
 export default async function Details({ params: { slug } }) {
+  const user = await getUserFromSession()
   const posts = await getPosts(slug);
 // if (!posts){
 //   notFound()
@@ -42,8 +45,16 @@ export default async function Details({ params: { slug } }) {
         ))}
         <div className="mt-6">
           <h2 className="text-lg font-bold text-white uppercase">Leave a Review</h2>
-          <Form slug={slug}  />
-          <Suspense fallback={<Skeleton animation='wave'/>}>
+          {user ? (
+          <Form slug={slug} userName={user.name} />
+        ) : (
+          <div className="border bg-gray-700 mt-3 px-3 py-3 rounded">
+            <Link href="/sign-in" className="text-gray-200 hover:underline">
+              Sign in
+            </Link> to have your say!
+          </div>
+        )}
+          <Suspense className='h-48' fallback={<Skeleton animation='wave'/>}>
           <CommentList slug={slug}/>
           </Suspense>
         </div>
