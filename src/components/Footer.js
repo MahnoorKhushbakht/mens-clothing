@@ -1,13 +1,21 @@
+import Searchbox from './SearchBox';
 import SocialNav from './SocialNav';
 
 function Footer() {
   return (
-    <div className="text-center bg-gradient-to-r from-gray-800 to-gray-950 text-white h-full w-full">
-      <div className="flex flex-col justify-center h-full">
-        <SocialNav/>
-        <p className="text-white">Copyright by TailorGents</p>
+    <footer className="bg-gradient-to-r from-gray-700 to-gray-950 text-white py-8">
+      <div className="container mx-auto flex flex-col items-center space-y-6">
+        <SocialNav />
+        <div className="text-center">
+          <h2 className="text-lg font-semibold mb-2">Looking for Something?</h2>
+          <p className="mb-4 text-sm">Search for your favorite products in our store!</p>
+          <div className='flex justify-center'>
+          <Searchbox />
+          </div>
+        </div>
+        <p className="text-white text-sm">© {new Date().getFullYear()} TailorGents. All rights reserved.</p>
       </div>
-    </div>
+    </footer>
   );
 }
 

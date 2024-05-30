@@ -1,6 +1,6 @@
 'use client'
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
@@ -43,7 +43,7 @@ export default function Searchbox() {
     };
   }, [debouncedQuery]);
 
-  const filteredPeople =
+  const filteredPosts =
     query === ''
       ? posts
       : posts.filter((post) => post.title.toLowerCase().includes(query.toLowerCase()));
@@ -55,20 +55,20 @@ export default function Searchbox() {
   };
 
   return (
-    <div className=" w-52 ">
+    <div className="w-52 flex justify-center">
       <Combobox value={selected} onChange={handleChange} __demoMode>
         <div className="relative">
           <ComboboxInput
             className={clsx(
               'w-full rounded-lg border-none bg-white/5 py-1.5 pr-8 pl-3 text-sm/6 text-white',
-              'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
+              'focus:outline-none focus:ring-2 focus:ring-white/25'
             )}
             displayValue={(post) => (post ? post.title : '')}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search posts..."
           />
           <ComboboxButton className="group absolute inset-y-0 right-0 px-2.5">
-            <ChevronDownIcon className="size-4 fill-white/60 group-data-[hover]:fill-white" />
+            <ChevronDownIcon className="size-4 fill-white/60 group-hover:fill-white" />
           </ComboboxButton>
         </div>
         <Transition
@@ -81,8 +81,15 @@ export default function Searchbox() {
             anchor="bottom"
             className="w-[var(--input-width)] rounded-xl border border-white/5 bg-white/5 p-1 [--anchor-gap:var(--spacing-1)] empty:hidden"
           >
-            {filteredPeople.length > 0 ? (
-              filteredPeople.map((post) => (
+            {debouncedQuery.length > 1 && filteredPosts.length === 0 ? (
+              <ComboboxOption
+                className="group flex cursor-default items-center gap-2 rounded-lg py-1.5 px-3 select-none data-[focus]:bg-white/10"
+                disabled
+              >
+                <div className="text-sm/6 text-white">Not Found</div>
+              </ComboboxOption>
+            ) : (
+              filteredPosts.map((post) => (
                 <ComboboxOption
                   key={post.id}
                   value={post}
@@ -92,13 +99,6 @@ export default function Searchbox() {
                   <div className="text-sm/6 text-white">{post.title}</div>
                 </ComboboxOption>
               ))
-            ) : (
-              <ComboboxOption
-                className="group flex cursor-default items-center gap-2 rounded-lg py-1.5 px-3 select-none data-[focus]:bg-white/10"
-                disabled
-              >
-                <div className="text-sm/6 text-white">Not Found</div>
-              </ComboboxOption>
             )}
           </ComboboxOptions>
         </Transition>

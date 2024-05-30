@@ -14,7 +14,7 @@ export default function SignInPage() {
       <SignUpForm/>
       <div className="py-3">
         Registered?{' '}
-        <Link href="/sign-in" className="text-gray-800 hover:underline">
+        <Link href="/sign-in" className="text-gray-400 hover:underline">
           Sign In
         </Link> instead
       </div>

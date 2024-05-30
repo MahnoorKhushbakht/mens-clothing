@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import axios from 'axios';
+import Layout from '@/components/Layout';
 import { Typography } from '@mui/material';
 
 const SignupSchema = Yup.object().shape({
@@ -59,32 +60,32 @@ const Contact = () => {
     }
   };
   
-  const cardStyle = {
-    backgroundColor: '#d1d5db',
-    border: 'transparent',
-    width: { xs: '90%', md: '90%' },
-    height: { xs: '80%', md: '80%' },
-  };
+
 
   const textStyle = {
-    color: '#030712',
+    color: '#d1d5db',
   };
 
   return (
-    <div className='bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen p-10 justify-center items-center  ' >
-      <Box display="flex" flexDirection={'column'} justifyContent="center" alignItems="center"  marginBottom='50px'>
-        <Card
-          variant="outlined"
-          sx={cardStyle}
-         
-        >
-          <CardContent>
-        <Typography sx={{fontSize: { xs: '25px', md: '30px' }}} color={'#030712'}  marginBottom={'5px'} display='flex' justifyItems='center'>
-              Send us a Message
-            </Typography>
-                  <Typography sx={{fontSize: { xs: '15px', md: '20px' }}} color={'#030712'}  marginBottom={'15px'} display='flex' justifyItems='center'>
-              We will be happy to help you
-            </Typography>
+    <Layout>
+<Card className='bg-gray-800 w-4/5 flex justify-center'>
+          <CardContent className=' w-4/5'>
+          <Box textAlign="center">
+              <Typography
+                sx={{ fontSize: { xs: '25px', md: '30px' } }}
+                color={'#d1d5db'}
+                marginBottom={'5px'}
+              >
+                Send us a Message
+              </Typography>
+              <Typography
+                sx={{ fontSize: { xs: '15px', md: '20px' } }}
+                color={'#d1d5db'}
+                marginBottom={'15px'}
+              >
+                We will be happy to help you
+              </Typography>
+            </Box>
             <Formik
               initialValues={{
                 firstName: '',
@@ -110,7 +111,7 @@ const Contact = () => {
                         margin="dense"
                         fullWidth
                         error={touched.firstName && errors.firstName}
-                        sx={{ ...textStyle, color: '#030712' }}
+                        sx={{ ...textStyle, color: '#d1d5db' }}
                         InputProps={{ sx: textStyle }}
                         InputLabelProps={{ sx: textStyle }}
                       />
@@ -118,7 +119,7 @@ const Contact = () => {
                         {msg => (
                           <div className="error"
                             style={{
-                              color: '#030712',
+                              color: '#d1d5db',
                               position: 'relative',
                               margin: '2px 0',
                               left: '5px',
@@ -140,7 +141,7 @@ const Contact = () => {
                         margin="dense"
                         fullWidth
                         error={touched.lastName && errors.lastName}
-                        sx={{ ...textStyle, color: '#030712' }}
+                        sx={{ ...textStyle, color: '#d1d5db' }}
                         InputProps={{ sx: textStyle }}
                         InputLabelProps={{ sx: textStyle }}
                       />
@@ -148,7 +149,7 @@ const Contact = () => {
                         {msg => (
                           <div className="error"
                             style={{
-                              color: '#030712',
+                              color: '#d1d5db',
                               position: 'relative',
                               margin: '2px 0',
                               left: '5px',
@@ -169,7 +170,7 @@ const Contact = () => {
                         margin="dense"
                         fullWidth
                         error={touched.email && errors.email}
-                        sx={{ ...textStyle, color: '#030712' }}
+                        sx={{ ...textStyle, color: '#d1d5db' }}
                         InputProps={{ sx: textStyle }}
                         InputLabelProps={{ sx: textStyle }}
                       />
@@ -177,7 +178,7 @@ const Contact = () => {
                         {msg => (
                           <div className="error"
                             style={{
-                              color: '#030712',
+                              color: '#d1d5db',
                               position: 'relative',
                               margin: '2px 0',
                               left: '5px',
@@ -198,7 +199,7 @@ const Contact = () => {
                         variant="filled"
                         margin="dense"
                         fullWidth
-                        sx={{ ...textStyle, color: '#030712' }}
+                        sx={{ ...textStyle, color: '#d1d5db' }}
                         InputProps={{ sx: textStyle }}
                         InputLabelProps={{ sx: textStyle }}
                       />
@@ -206,7 +207,7 @@ const Contact = () => {
                         {msg => (
                           <div className="error"
                             style={{
-                              color: '#030712',
+                              color: '#d1d5db',
                               position: 'relative',
                               margin: '2px 0',
                               left: '5px',
@@ -218,24 +219,26 @@ const Contact = () => {
                       </ErrorMessage>
                     </div>
                   </ThemeProvider>
+                  <Box display="flex" justifyContent="center" marginTop="20px">
                   <Button
                     type="submit"
                     sx={{
-                      border:'2px solid #030712',
-                      color: '#030712',
+                      border:'2px solid #d1d5db',
+                      color: '#d1d5db',
                       '&:hover': {
-                        background: '#030712',
+                        background: '#d1d5db',
                         color: '#d1d5db',
                       },
-                      margintop: '16px',
+                      margintop: '20px',
                       marginBottom:'4px',
-                      fontFamily: 'Helvetica, Arial',
+                    
                     }}
                     variant="outlined"
                     disabled={!isValid}
                   >
                     {isLoading ? 'Submitting...' : 'Submit'}
                   </Button>
+                  </Box>
                   <Snackbar
                     open={isSuccess}
                     autoHideDuration={6000}
@@ -244,9 +247,8 @@ const Contact = () => {
                   >         
                     <Alert severity="success" 
     sx={{
-      backgroundColor: '#030712',  
-      color: '#d1d5db', 
-      fontFamily: 'Helvetica, Arial',          
+      backgroundColor: '#d1d5db',  
+      color: '#d1d5db',        
       '& .MuiAlert-icon': {
         color: 'green',        
       },
@@ -265,7 +267,7 @@ const Contact = () => {
                       <Alert
     severity="error"
     sx={{
-      backgroundColor: '#030712',  
+      backgroundColor: '#d1d5db',  
       color: '#d1d5db', 
       fontFamily: 'Helvetica, Arial',           
       '& .MuiAlert-icon': {
@@ -283,8 +285,7 @@ const Contact = () => {
             </Formik>
           </CardContent>
         </Card>
-      </Box>
-    </div>
+</Layout>
   );
 };
 
