@@ -1,5 +1,25 @@
 import  { Schema, model, models } from 'mongoose';
 
+const cartSchema = new Schema({
+  product: {
+    type: String,
+    required: true,
+  },
+  quantity: {
+    type: Number,
+    default: 1,
+  },
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'Sign', 
+    required: true,
+  },
+}, {
+  timestamps: true, 
+  versionKey: false,
+});
+
+
 const fieldSchema = new Schema({
   name: {
     type: String,
@@ -31,7 +51,11 @@ const signSchema = new Schema({
  fields: [{ type: Schema.Types.ObjectId,
   ref: 'Field', 
   required: true, }],
-
+  quantities: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Cart', 
+    required: true,
+  }],
   name: {
     type: String,
     required: true,
@@ -66,8 +90,9 @@ const commentSchema = new Schema({
 });
 
 
+const Cart = models.Cart || model('Cart',cartSchema)
 const Field = models.Field || model('Field', fieldSchema);
 const Sign = models.Sign || model('Sign', signSchema);
 const Comment = models.Comment || model('Comment', commentSchema);
 
-export { Field, Sign, Comment };
+export { Field, Sign, Comment,Cart };

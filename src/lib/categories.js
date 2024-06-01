@@ -58,3 +58,28 @@ export async function getSearch(slug) {
     }));
   }
   
+
+  
+  // Fetch cart data
+  export async function getCartData() {
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL_Cart || 'http://localhost:3000/api/cart');
+      console.log('Response:', response);
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      console.log('Fetched Data:', data);
+  
+      return data;
+    } catch (error) {
+      console.error('Fetch error:', error);
+      return { data: [] };
+    }
+  }
+  
+
+  
+  

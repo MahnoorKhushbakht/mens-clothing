@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link'; 
 import { getUserFromSession } from '@/lib/auth';
+import Cart from '@/components/Cart';
 
 export default async function Details({ params: { slug } }) {
   const user = await getUserFromSession()
@@ -38,6 +39,8 @@ export default async function Details({ params: { slug } }) {
                   <p className="text-white">{content.summary}</p>
                   <div className="text-white" dangerouslySetInnerHTML={{ __html: content.table }} />
                   {/* <ImageShow feature={content.feature} /> */}
+                  <Cart itemName={post.title.rendered} />
+                  
                 </div>
               </div>
             ))}
@@ -54,9 +57,12 @@ export default async function Details({ params: { slug } }) {
             </Link> to have your say!
           </div>
         )}
-          <Suspense className='h-48' fallback={<Skeleton animation='wave'/>}>
-          <CommentList slug={slug}/>
-          </Suspense>
+    <div className="relative h-48">
+      <Suspense fallback={null}>
+        <CommentList slug={slug} />
+      </Suspense>
+    </div>
+        
         </div>
         </div>
 }

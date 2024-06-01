@@ -80,8 +80,8 @@ export default function SignUpForm() {
                         Name
                     </label>
                     <input id="nameField" name="name" type="text"
-                        className="border px-2 py-1 rounded w-full" value={formData.name}
-                        onChange={handleChange} disabled={loading}
+                        className="border px-2 py-1 rounded w-full text-black" value={formData.name}
+                        onChange={handleChange} disabled={loading} required
                     />
                 </div>
                 <div className="flex">
@@ -89,8 +89,8 @@ export default function SignUpForm() {
                         Email
                     </label>
                     <input id="emailField" name="email" type="email"
-                        className="border px-2 py-1 rounded w-full" value={formData.email}
-                        onChange={handleChange} disabled={loading}
+                        className="border px-2 py-1 text-black rounded w-full" value={formData.email}
+                        onChange={handleChange} disabled={loading} required
                     />
                 </div>
                 <div className="flex">
@@ -98,8 +98,8 @@ export default function SignUpForm() {
                         Password
                     </label>
                     <input id="passwordField" name="password" type="password"
-                        className="border px-2 py-1 rounded w-full" value={formData.password}
-                        onChange={handleChange} disabled={loading}
+                        className="border px-2 py-1 text-black rounded w-full" value={formData.password}
+                        onChange={handleChange} disabled={loading} required
                     />
                 </div>
                 <button type="submit"

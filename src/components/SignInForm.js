@@ -15,7 +15,7 @@ export default function SignInForm() {
           Email
         </label>
         <input id="emailField" name="email" type="email"
-          className="border px-2 py-1 rounded w-full"
+          className="border px-2 py-1 text-black rounded w-full"
         />
       </div>
       <div className="flex">
@@ -23,7 +23,7 @@ export default function SignInForm() {
           Password
         </label>
         <input id="passwordField" name="password" type="password"
-          className="border px-2 py-1 rounded w-full"
+          className="border px-2  text-black py-1 rounded w-full"
         />
       </div>
       {Boolean(state.error) && (

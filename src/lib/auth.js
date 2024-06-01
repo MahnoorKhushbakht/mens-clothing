@@ -1,5 +1,6 @@
 import { SignJWT,jwtVerify } from 'jose';
 import { cookies } from 'next/headers'
+import { cache } from 'react';
 
 const JWT_SECRET = new TextEncoder().encode(process.env.NEXT_PUBLIC_API_JWT);
 const JWT_COOKIE = 'sessionToken';
@@ -21,16 +22,19 @@ export async function setSessionCookie({ id, email, name }) {
   export function deleteSessionCookie() {
     cookies().delete(JWT_COOKIE);
   }
+const decodeSessionToken = cache(async (sessionToken) => {
+  try {
+    console.log('calling jwtVerify');
+    const { payload } = await jwtVerify(sessionToken, JWT_SECRET);
+    return payload;
+  } catch (error) {
+    console.warn('Invalid JWT', error);
+  }
+});
 
- export async function getUserFromSession() {
+ export function getUserFromSession() {
     const sessionToken = cookies().get(JWT_COOKIE)?.value;
     if (sessionToken) {
-      try {
-      const { payload } = await jwtVerify(sessionToken, JWT_SECRET);
-        return payload;
-     
-      } catch (error) {
-        console.warn('Invalid JWT', error);
-      }
+      return decodeSessionToken(sessionToken);
     }
   }
