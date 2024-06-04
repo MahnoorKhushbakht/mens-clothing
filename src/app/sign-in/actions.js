@@ -1,5 +1,5 @@
 'use server';
-import Sign from '@/utils/models/signModel'
+
 import dbConnect from '@/lib/db';
 import { compare } from 'bcrypt';
 import { setSessionCookie } from '@/lib/auth';

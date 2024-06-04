@@ -1,22 +1,37 @@
 'use client';
 import { useState } from 'react';
-import { Suspense } from 'react';
 import { useRouter } from 'next/navigation';
-import ShareLinkButton from './ShareLinkButton';
 
-export default function Cart({ itemName}) {
+export default function Cart({ itemName, price }) {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
     product: itemName,
-    quantity: 1     
+    quantity: 1,
+    price: price,
   });
-// console.log('user id',{ userId })
+
+  const increment = () => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      quantity: prevFormData.quantity + 1,
+    }));
+  };
+
+  const decrement = () => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      quantity: prevFormData.quantity > 1 ? prevFormData.quantity - 1 : 1,
+    }));
+  };
+
+ 
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: name === 'quantity' ? parseInt(value, 10) : value
+      [name]: parseInt(value, 10),
     }));
   };
 
@@ -45,55 +60,64 @@ export default function Cart({ itemName}) {
     }
   };
 
-
   return (
-    <div className="backdrop-opacity-10 text-white flex justify-start">
-        <div className="relative h-48">
-  <Suspense fallback={null}>
-      <form className="flex flex-col gap-2 mt-3 w-2/3 py-3 items-start max-w-md" onSubmit={handleSubmit}>
-        <div className="flex w-full">
-          <label htmlFor="productField" className="shrink-0 w-32">
-            Product Name
-          </label>
+    <div className="backdrop-opacity-10 text-white flex ">
+      <form className="flex flex-col gap-2 items-start" onSubmit={handleSubmit}>
+        <div className="flex w-2/5">
           <input
             id="productField"
             name="product"
-            type="text"
+            type="hidden"
             onChange={handleChange}
-            className="border px-2 py-1 text-black rounded w-full"
+            className="border px-2 text-white py-1 rounded w-full bg-inherit"
             value={formData.product}
           />
-                    {/* <input
-           
-            type="text"
-           
-            className="border px-2 py-1 text-black rounded w-full"
-            value={userId}
-          /> */}
         </div>
-        <div className="flex w-full">
-          <label htmlFor="quantityField" className="shrink-0 w-32">
-            Quantity
-          </label>
+
+        <div className="flex items-center ">
+          <button
+            type="button"
+            className="bg-inherit border border-gray-400 text-gray-200 h-10 w-10 rounded-r focus:outline-none hover:bg-gray-800"
+            onClick={decrement}
+          >
+            -
+          </button>
           <input
             id="quantityField"
             name="quantity"
             type="number"
             onChange={handleChange}
             value={formData.quantity}
-            className="border px-2 text-black py-1 rounded w-full"
+            readOnly
+            className="text-center w-12 h-10 border-t border-b border-gray-400 focus:outline-none text-white bg-gray-800"
+          />
+          <button
+            type="button"
+            className="bg-inherit border border-gray-400 text-gray-200 h-10 w-10 rounded-r focus:outline-none hover:bg-gray-800"
+            onClick={increment}
+          >
+            +
+          </button>
+        </div>
+
+        <div className="flex w-full">
+          <input
+            id="priceField"
+            name="price"
+            type="hidden"
+            onChange={handleChange}
+            value={formData.price}
+            className="border px-2 text-black py-1 rounded w-full bg-inherit"
           />
         </div>
+
         <button
           type="submit"
-          className="bg-gray-400 rounded py-1 text-gray-800 w-32 hover:bg-gray-200 disabled:bg-slate-500 disabled:cursor-not-allowed"
+          className="bg-gray-400 rounded py-1 text-gray-800 w-32 hover:bg-gray-300 disabled:bg-slate-500 disabled:cursor-not-allowed"
         >
           Add to Cart
         </button>
-        <ShareLinkButton/>
       </form>
-      </Suspense>
-      </div>
     </div>
   );
 }

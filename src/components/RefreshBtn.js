@@ -1,14 +1,25 @@
+'use client'
 import { useRouter } from "next/navigation";
-import { Button } from '@mui/material';
-const RefreshBtn = () =>{
-    const router = useRouter()
+import { IconButton } from '@mui/material';
+import { RefreshIcon } from '@heroicons/react/solid';
+
+const RefreshBtn = () => {
+    const router = useRouter();
     const handleRefresh = () => {
-        router.refresh()
+        router.refresh();
     };
-    return(
+
+    return (
         <div>
-            <Button  type='submit' color='secondary' variant="contained" onClick={handleRefresh}>Newest Comment</Button>
+            <IconButton
+                onClick={handleRefresh}
+                className=" rounded-full p-2 text-gray-400 
+                           hover:bg-gray-200 disabled:bg-slate-500 disabled:cursor-not-allowed"
+            >
+                <RefreshIcon style={{ width: 24, height: 24, color: 'gray' }} />
+            </IconButton>
         </div>
-    )
-}
+    );
+};
+
 export default RefreshBtn;

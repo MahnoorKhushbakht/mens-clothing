@@ -13,16 +13,16 @@ export default function Buttons() {
   // };
 
   return (
-    <div className="p-2 space-x-4 flex justify-center align-middle">
+    <div className="p-2 space-x-8 flex justify-center align-middle">
            <button type="submit" 
-        className="bg-gray-400 rounded px-2 py-1 self-center
-                   text-gray-800 w-32 hover:bg-gray-200
+        className="bg-inherit rounded px-2 py-1 self-center outline-gray-300 outline outline-offset-4
+                   text-gray-300 w-24 md:w-32
                    disabled:bg-slate-500 disabled:cursor-not-allowed">
         Call Us
       </button>
       <button type="submit" 
-        className="bg-gray-400 rounded px-2 py-1 self-center
-                   text-gray-800 w-32 hover:bg-gray-200
+        className="bg-inherit rounded px-2 py-1 self-center outline-gray-300 outline outline-offset-4
+                   text-gray-300 w-24 md:w-32
                    disabled:bg-slate-500 disabled:cursor-not-allowed">
         Contact Us
       </button>

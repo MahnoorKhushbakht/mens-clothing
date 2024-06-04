@@ -10,9 +10,9 @@ export default async function NavBar() {
   const user = await getUserFromSession();
 
   return (
-    <nav className=" shadow-xl p-4 bg-transparent">
-      <div className="flex justify-between items-center">
-        <ul className=" font-bold text-lg text-white flex flex-row space-x-4">
+    <nav className=" shadow-xl space-x-4 py-2 bg-transparent">
+      <div className="flex justify-between items-center p-2">
+        <ul className=" font-bold text-lg md:text-xl text-white flex flex-row space-x-4">
           <li>
           <NavLink href="/" >
             {/* <span className="hidden md:inline">TAILORED GENTS</span> */}
@@ -30,7 +30,7 @@ export default async function NavBar() {
           </NavLink>
           </li>
         </ul>
-        <ul className="flex gap-3 bg-transparent p-2 text-base">
+        <ul className="flex gap-3 bg-transparent p-2 text-base md:text-lg">
           <li className="ml-auto">
             <NavLink href="/category">
               Categories

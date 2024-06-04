@@ -21,12 +21,13 @@ export async function POST(request) {
       throw new Error('Unauthorized');
     }
     const body = await request.json();
-    const { product,quantity } = body;
-    console.log("Received POST request with data:", product,quantity );
+    const { product,quantity,price } = body;
+    console.log("Received POST request with data:", product,quantity,price );
    await dbConnect();
     const cart = await Cart.create({
       product,
       quantity,
+      price,
       user_id: user.id, 
     });
     console.log("Saved field:", cart);
