@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import CardData from '@/components/CardContent';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-
+import { Suspense } from 'react';
 
 
 // export async function generateStaticParams() {
@@ -48,13 +48,14 @@ if(!posts){
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div" className='flex justify-between items-center flex-row space-x-4'>
                   <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-  <Link href={`http://localhost:3000/details/${post.slug}`} passHref>
+  <Link href={`${process.env.NEXT_PUBLIC_API_URL_Details}/${post.slug}`} passHref>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-gray-500 hover:text-white w-6 h-6">
       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
     </svg>
   </Link>
 
                   </Typography>
+                  <Suspense fallback={<div>Loading...</div>}>
                   <Image
                   src={content.imageUrl}
                   width={150}
@@ -62,6 +63,7 @@ if(!posts){
                   alt='details image'
                   className='flex justify-center m-auto p-1  items-center'
                   />
+                  </Suspense>
                   <Typography variant="body2">
                     {content.summary}
                   </Typography>

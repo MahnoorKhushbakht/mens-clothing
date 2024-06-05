@@ -123,3 +123,8 @@ export default function CommentForm({ slug, userName }) {
     </div>
   );
 }
+// https://localhost/mens-clothing/wp-admin/edit.php
+
+// db name: id22269011_tailoredg
+// id22269011_mensclothing
+// pss: Pakistan980@
