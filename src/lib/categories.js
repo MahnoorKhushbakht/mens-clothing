@@ -43,6 +43,8 @@ export async function getComments(slug) {
     return filteredPosts;
 }
 
+
+
 // export async function getSearch() {
 //     const postsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL_WP}posts`);
 //     const posts = await postsResponse.json();

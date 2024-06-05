@@ -55,13 +55,15 @@ if(!posts){
   </Link>
 
                   </Typography>
-                  <Image
-                  src={content.imageUrl}
-                  width={150}
-                  height={150}
-                  alt='details image'
-                  className='flex justify-center m-auto p-1  items-center'
-                  />
+                  <div className='flex justify-center m-auto p-1 items-center'>
+  <img
+    src={content.imageUrl}
+    width={150}
+    height={150}
+    alt='details image'
+  />
+</div>
+
                   <Typography variant="body2">
                     {content.summary}
                   </Typography>
