@@ -8,7 +8,7 @@ export default function SignInForm() {
 
   return (
     <form onSubmit={handleSubmit}
-      className="border flex flex-col gap-2
+      className="flex flex-col gap-2  m-5
                  max-w-screen-sm mt-3 px-3 py-3 rounded">
       <div className="flex">
         <label htmlFor="emailField" className="shrink-0 w-32">

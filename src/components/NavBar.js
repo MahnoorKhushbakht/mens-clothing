@@ -10,7 +10,7 @@ export default async function NavBar() {
   const user = await getUserFromSession();
 
   return (
-    <nav className=" shadow-xl space-x-4 py-2 bg-transparent">
+    <nav className=" p-3 bg-transparent">
       <div className="flex justify-between items-center p-2">
         <ul className=" font-bold text-lg md:text-xl text-white flex flex-row space-x-4">
           <li>
@@ -31,21 +31,6 @@ export default async function NavBar() {
           </li>
         </ul>
         <ul className="flex gap-3 bg-transparent p-2 text-base md:text-lg">
-          <li className="ml-auto">
-            <NavLink href="/category">
-              Categories
-            </NavLink>
-          </li>
-          <li>
-            <NavLink href="/about" prefetch={false}>
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink href="/contact" prefetch={false}>
-              Contact
-            </NavLink>
-          </li>
           {user ? (
             <li className='text-white'>
               {/* {user.email} */}

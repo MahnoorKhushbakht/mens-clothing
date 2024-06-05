@@ -15,7 +15,7 @@ export default function Category() {
       <p className="text-center italic mb-6 w-4/5">
       Explore now to elevate your wardrobe with the latest trends and timeless classics!
       </p>
-      <ul className='flex flex-row space-x-4'>
+      <ul className='grid grid-cols-2 gap-4 '>
         {category.map((categoryItem) => (
           <li key={categoryItem.slug}>
             <Link href={`/category/${categoryItem.slug}`} style={{ textDecoration: 'none' }}>

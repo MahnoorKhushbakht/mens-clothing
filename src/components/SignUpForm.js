@@ -74,7 +74,7 @@ export default function SignUpForm() {
                 </Alert>
             )}
             <form onSubmit={handleSubmit}
-                className="border flex flex-col gap-2 max-w-screen-sm mt-3 px-3 py-3 rounded">
+                className="flex flex-col gap-2 max-w-screen-sm mt-3 px-3 py-3 rounded">
                 <div className="flex">
                     <label htmlFor="nameField" className="shrink-0 w-32">
                         Name

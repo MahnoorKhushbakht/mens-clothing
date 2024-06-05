@@ -28,7 +28,7 @@ if(!posts){
 }
 
   return (
-    <div className="bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen flex flex-col flex-wrap justify-center items-center">
+    <div className="bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen flex flex-col flex-wrap justify-center items-center m-5 p-5">
 
               {((posts.length === 0)) ? notFound()
         : 
