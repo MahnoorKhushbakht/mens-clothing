@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import CardData from '@/components/CardContent';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Suspense } from 'react';
+
 
 
 // export async function generateStaticParams() {
@@ -28,7 +28,7 @@ if(!posts){
 }
 
   return (
-    <div className="bg-gradient-to-r p-3 from-gray-800 to-gray-950 min-h-screen flex flex-col flex-wrap justify-center items-center m-5">
+    <div className="bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen flex flex-col flex-wrap justify-center items-center">
 
               {((posts.length === 0)) ? notFound()
         : 
@@ -55,7 +55,6 @@ if(!posts){
   </Link>
 
                   </Typography>
-                  <Suspense fallback={<div>Loading...</div>}>
                   <Image
                   src={content.imageUrl}
                   width={150}
@@ -63,7 +62,6 @@ if(!posts){
                   alt='details image'
                   className='flex justify-center m-auto p-1  items-center'
                   />
-                  </Suspense>
                   <Typography variant="body2">
                     {content.summary}
                   </Typography>
