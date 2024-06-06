@@ -18,11 +18,11 @@
 // export default nextConfig;
 // next.config.js
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    output: 'export',
-    // Add other Next.js configurations here if needed
-  };
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//     output: 'export',
+//     // Add other Next.js configurations here if needed
+//   };
   
-  export default nextConfig;
+//   export default nextConfig;
   
