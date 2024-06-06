@@ -1,4 +1,4 @@
-import { getPosts } from '@/lib/categories';
+import { getPosts,getSlugs } from '@/lib/categories';
 import { parseHTMLContent } from '@/lib/content';
 import CommentList from '@/components/CommentList';
 import ImageZoom from '@/components/ImageZoom';
@@ -11,6 +11,13 @@ import Cart from '@/components/Cart';
 import CommentListSkeleton from '@/components/CommentListSkeleton';
 import ShareLinkButton from '@/components/ShareLinkButton';
 import CommentForm from '@/views/CommentForm';
+
+
+export async function generateStaticParams() {
+  const slug = await getSlugs();
+  console.log('[ReviewPage] generateStaticParams:', slug);
+  return slug;
+}
 
 export default async function Details({ params: { slug } }) {
   let user = null;

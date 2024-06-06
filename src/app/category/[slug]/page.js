@@ -12,11 +12,11 @@ import Image from 'next/image';
 
 
 
-// export async function generateStaticParams() {
-//   const slug = await getSlugs();
-//   console.log('[ReviewPage] generateStaticParams:', slug);
-//   return slug;
-// }
+export async function generateStaticParams() {
+  const slug = await getSlugs();
+  console.log('[ReviewPage] generateStaticParams:', slug);
+  return slug;
+}
 
 export default async function ReviewPage({ params: { slug } }) {
   
