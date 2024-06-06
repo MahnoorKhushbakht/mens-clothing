@@ -15,10 +15,10 @@ export default function RootLayout({ children }) {
         <header>
           <NavBar/>
         </header>
-        <main style={{ flex: '1 0 auto' }}>
+        <main style={{ flex: '1 0 auto', marginLeft: '20px', marginRight: '20px' }}>
           {children}
         </main>
-        <footer style={{ margintop: 'auto' }}>
+        <footer style={{ marginTop: 'auto' }}>
           <Footer/>
         </footer>
       </body>
