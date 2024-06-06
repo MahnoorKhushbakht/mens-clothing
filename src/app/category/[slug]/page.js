@@ -1,6 +1,6 @@
 
 import '@/app/css/style.css';
-import { getCategories, getposts,getSlugs } from '@/lib/categories';
+import { getCategories, getCategoriesSlug, getposts,getSlugs } from '@/lib/categories';
 import { parseHTMLContent } from '@/lib/content';
 import { Stack, Box } from '@chakra-ui/react';
 import CardContent from '@mui/material/CardContent';
@@ -13,7 +13,7 @@ import Image from 'next/image';
 
 
 export async function generateStaticParams() {
-  const slug = await getSlugs();
+  const slug = await getCategoriesSlug()
   console.log('[ReviewPage] generateStaticParams:', slug);
   return slug;
 }
