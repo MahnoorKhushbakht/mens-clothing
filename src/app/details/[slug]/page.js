@@ -1,22 +1,30 @@
-import { getPosts } from '@/lib/categories';
+import { getPosts,getSlugs } from '@/lib/categories';
 import { parseHTMLContent } from '@/lib/content';
 import CommentList from '@/components/CommentList';
 import ImageZoom from '@/components/ImageZoom';
+import Image from 'next/image';
 import { Suspense } from 'react';
-import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import Link from 'next/link'; 
 import { getUserFromSession } from '@/lib/auth';
 import Cart from '@/components/Cart';
 import CommentListSkeleton from '@/components/CommentListSkeleton';
 import ShareLinkButton from '@/components/ShareLinkButton';
 import CommentForm from '@/views/CommentForm';
 
-export async function getServerSideProps(context) {
-  const { slug } = context.params;
+
+// export async function generateStaticParams() {
+//   const slug = await getSlugs();
+//   console.log('[ReviewPage] generateStaticParams:', slug);
+//   return slug;
+// }
+
+export default async function Details({ params: { slug } }) {
   let user = null;
   let posts = [];
 
   try {
-    user = await getUserFromSession(context.req);
+    user = await getUserFromSession();
   } catch (error) {
     console.error("Error fetching user:", error);
   }
@@ -28,21 +36,9 @@ export async function getServerSideProps(context) {
   }
 
   if (!posts || posts.length === 0) {
-    return {
-      notFound: true,
-    };
+    notFound();
   }
 
-  return {
-    props: {
-      user,
-      posts,
-      slug,
-    },
-  };
-}
-
-export default function Details({ user, posts, slug }) {
   return (
     <div className="bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen">
       <div className="flex flex-col p-8">
@@ -53,20 +49,20 @@ export default function Details({ user, posts, slug }) {
                 <ImageZoom>
                   <div className="flex flex-col items-center w-full">
                     <Suspense fallback={<div>Loading...</div>}>
-                      <img
-                        src={content.imageUrl}
-                        alt="Product Detail"
-                        width={500}
-                        height={500}
-                        className="drop-shadow-2xl max-w-full h-auto mt-10"
-                      />
+                    <img
+                    src={content.imageUrl}
+                    alt="Product Detail"
+                    width={500}
+                    height={500}
+                    className="drop-shadow-2xl max-w-full h-auto mt-10"
+                  />
                     </Suspense>
                   </div>
                 </ImageZoom>
                 <div className="w-full md:w-3/5 ml-0 md:ml-8 mt-4 md:mt-0">
                   <div className='flex flex-row'>
                     <h2 className="text-lg md:text-xl font-bold text-white uppercase">{post.title.rendered}</h2>
-                    <ShareLinkButton />
+                    <ShareLinkButton/>
                   </div>
                   <p className="text-white w-full md:w-3/4">{content.summary}</p>
                   <div 
@@ -95,7 +91,7 @@ export default function Details({ user, posts, slug }) {
               </Link> to have your say!
             </div>
           )}
-          <Suspense fallback={<CommentListSkeleton />}>
+          <Suspense fallback={<CommentListSkeleton/>}>
             <CommentList slug={slug} />
           </Suspense>
         </div>
