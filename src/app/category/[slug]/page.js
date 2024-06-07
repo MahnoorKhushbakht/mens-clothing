@@ -56,7 +56,7 @@ if(!posts){
         width={150}
         height={150}
         className=" max-w-full h-auto mt-10"
-        quality={100} // Set quality to 100 for best quality
+        quality={100} 
       />
       </Suspense>
 </div>

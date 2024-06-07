@@ -77,7 +77,7 @@ export default function SignUpForm() {
                 className="flex flex-col gap-2  m-5 bg-gray-900
                 max-w-screen-sm mt-3 px-3 py-4 rounded">
                 <div className="flex">
-                    <label htmlFor="nameField" className="shrink-0 w-32">
+                    <label htmlFor="nameField" className="shrink-0 ">
                         Name
                     </label>
                     <input id="nameField" name="name" type="text" placeholder='Name'
@@ -86,7 +86,7 @@ export default function SignUpForm() {
                     />
                 </div>
                 <div className="flex">
-                    <label htmlFor="emailField" className="shrink-0 w-32">
+                    <label htmlFor="emailField" className="shrink-0 ">
                         Email
                     </label>
                     <input id="emailField" name="email" type="email"placeholder='user@example.com'
@@ -95,7 +95,7 @@ export default function SignUpForm() {
                     />
                 </div>
                 <div className="flex">
-                    <label htmlFor="passwordField" className="shrink-0 w-32">
+                    <label htmlFor="passwordField" className="shrink-0 ">
                         Password
                     </label>
                     <input id="passwordField" name="password" type="password"placeholder='Password'
