@@ -49,13 +49,14 @@ export default async function Details({ params: { slug } }) {
                 <ImageZoom>
                   <div className="flex flex-col items-center w-full">
                     <Suspense fallback={<div>Loading...</div>}>
-                    <img
-                    src={content.imageUrl}
-                    alt="Product Detail"
-                    width={500}
-                    height={500}
-                    className="drop-shadow-2xl max-w-full h-auto mt-10"
-                  />
+                    <Image
+        src={content.imageUrl}
+        alt="Product Detail"
+        width={300}
+        height={300}
+        className=" max-w-full h-auto mt-10"
+        quality={100} // Set quality to 100 for best quality
+      />
                     </Suspense>
                   </div>
                 </ImageZoom>

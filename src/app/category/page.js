@@ -13,7 +13,7 @@ export default function Category() {
     <Layout>
      
       <h1 className='mb-4'>Categories!!</h1>
-      <p className="text-center italic mb-6 ">
+      <p className="text-center italic mb-6 w-80 md:w-full ">
       Explore now to elevate your wardrobe with the latest trends and timeless classics!
       </p>
       <ul className='grid grid-cols-2 md:grid-cols-3 gap-4 '>

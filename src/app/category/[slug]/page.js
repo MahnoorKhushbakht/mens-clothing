@@ -52,12 +52,14 @@ if(!posts){
 
                   </Typography>
                   <div className='flex justify-center m-auto p-1 items-center'>
-  <img
-    src={content.imageUrl}
-    width={150}
-    height={150}
-    alt='details image'
-  />
+   <Image
+        src={content.imageUrl}
+        alt="Product Detail"
+        width={150}
+        height={150}
+        className=" max-w-full h-auto mt-10"
+        quality={100} // Set quality to 100 for best quality
+      />
 </div>
 
                   <Typography variant="body2">
