@@ -16,6 +16,7 @@ import {
   Stack
 } from '@chakra-ui/react';
 import CartTableSkeleton from './CartTableSkeleton';
+import Layout from './Layout';
 
 export default function CartTable({ userId }) {
   const [data, setData] = useState([]);
@@ -63,7 +64,8 @@ export default function CartTable({ userId }) {
       {loading ? (
         <CartTableSkeleton/>
       ) : (
-        <Stack spacing={4}  w="100%" maxW={{ base: '100%', sm: '400px', md: '600px', lg: '800px' }} mx="auto">
+        <Layout>
+            <h1>Cart</h1>
           <Table variant='striped' colorScheme='black'>
             <Thead>
               <Tr>
@@ -96,13 +98,14 @@ export default function CartTable({ userId }) {
           </Table>
           <Button
         type="submit"
-        className="bg-gray-800 rounded px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
+        className="bg-gray-800 rounded mt-8 px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
         isDisabled={filteredData.length === 0}
       >
         CheckOut
       </Button>
-        </Stack>
+      </Layout>
       )}
+     
     </ChakraProvider>
   );
 }

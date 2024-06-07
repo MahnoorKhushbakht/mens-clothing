@@ -13,7 +13,7 @@ export default async function SignInPage() {
    
   return (
   <Layout>
-      <h1>Cart</h1>
+    
       {user ? (
 
       <CartTable userId={user.id}/>
