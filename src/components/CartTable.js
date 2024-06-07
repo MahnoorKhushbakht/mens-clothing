@@ -63,7 +63,7 @@ export default function CartTable({ userId }) {
       {loading ? (
         <CartTableSkeleton/>
       ) : (
-        <Stack spacing={4} p={4} w="100%" maxW="800px" mx="auto">
+        <Stack spacing={4}  w="100%" maxW={{ base: '100%', sm: '400px', md: '600px', lg: '800px' }} mx="auto">
           <Table variant='striped' colorScheme='black'>
             <Thead>
               <Tr>

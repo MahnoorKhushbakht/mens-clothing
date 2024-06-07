@@ -22,7 +22,6 @@ export default function CartTableSkeleton() {
     <ChakraProvider>
     <TableContainer className='animate-pulse'>
       <Table variant='striped' colorScheme='black'>
-        <TableCaption>All Right Reserved</TableCaption>
         <Thead>
           <Tr>
             <Th>Product Name</Th>
