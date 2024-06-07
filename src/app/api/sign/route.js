@@ -1,8 +1,9 @@
-import {Sign} from '@/utils/models/Schema'
+
 import dbConnect from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 import { setSessionCookie } from '@/lib/auth';
 import {  hash } from 'bcrypt';
+import { Sign } from '@/utils/models/Schema';
 export async function GET() {
     await dbConnect();
     try {

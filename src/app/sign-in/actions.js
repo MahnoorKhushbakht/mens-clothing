@@ -4,6 +4,7 @@ import dbConnect from '@/lib/db';
 import { compare } from 'bcrypt';
 import { setSessionCookie } from '@/lib/auth';
 import { redirect } from 'next/navigation';
+import { Sign } from '@/utils/models/Schema';
 
 const JWT_SECRET = new TextEncoder().encode(process.env.NEXT_PUBLIC_API_JWT);
 

@@ -1,7 +1,7 @@
 export default function Layout({children}){
     return(
       <div
-      className="bg-gradient-to-r from-gray-800 to-gray-950
+      className="
        bg-center 
        backdrop-opacity-10 
        bg-cover min-h-screen 

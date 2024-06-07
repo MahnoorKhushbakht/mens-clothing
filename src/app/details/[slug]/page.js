@@ -40,7 +40,7 @@ export default async function Details({ params: { slug } }) {
   }
 
   return (
-    <div className="bg-gradient-to-r from-gray-800 to-gray-950 min-h-screen">
+    <div className="min-h-screen">
       <div className="flex flex-col p-8">
         {posts.map((post) => (
           <div key={post.id}>
@@ -71,7 +71,7 @@ export default async function Details({ params: { slug } }) {
                   >
                     <div dangerouslySetInnerHTML={{ __html: content.table }} />
                   </div>
-                  <p className="bg-gray-600 text-white p-2 rounded w-1/3 md:w-1/5 flex items-center justify-center text-lg shadow-lg">
+                  <p className="bg-gray-600 text-white p-2 rounded w-32 md:w-1/5 flex items-center justify-center text-lg shadow-lg">
                     {`Price: ${content.price}`} Rs
                   </p>
                   <Cart itemName={post.title.rendered} price={content.price} />
