@@ -12,8 +12,7 @@ import {
   TableContainer,
   ChakraProvider,
   Button,
-  Skeleton,
-  Stack
+Box
 } from '@chakra-ui/react';
 import CartTableSkeleton from './CartTableSkeleton';
 import Layout from './Layout';
@@ -68,6 +67,7 @@ export default function CartTable({ userId }) {
        <div className='flex justify-center'>
   <h1>Cart</h1>
 </div>
+<Box mx={{ base: 4, md: 8 }} overflowX="auto">
           <Table variant='simple' marginLeft='5px' marginRight='5px' colorScheme='black' className='w-80' size={{ base: 'sm', md: 'md', lg: 'lg' }}>
             <Thead>
               <Tr>
@@ -98,6 +98,7 @@ export default function CartTable({ userId }) {
               )}
             </Tbody>
           </Table>
+        </Box>
           <Button
         type="submit"
         className="bg-gray-800 rounded mt-8 px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
