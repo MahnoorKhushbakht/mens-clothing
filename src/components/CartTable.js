@@ -68,7 +68,7 @@ export default function CartTable({ userId }) {
        <div className='flex justify-center'>
   <h1>Cart</h1>
 </div>
-          <Table variant='simple' colorScheme='black' className='w-80' size={{ base: 'sm', md: 'md', lg: 'lg' }}>
+          <Table variant='simple' marginLeft='5px' marginRight='5px' colorScheme='black' className='w-80' size={{ base: 'sm', md: 'md', lg: 'lg' }}>
             <Thead>
               <Tr>
                 <Th>Product Name</Th>
