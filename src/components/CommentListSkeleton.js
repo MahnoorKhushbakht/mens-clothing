@@ -9,8 +9,8 @@ export default async function CommentListSkeleton() {
        <p className='text-white antialiased'>Explore our customers <strong className="text-amber-500 ">reviews</strong> to see how they’re loving our products. Get inspired to enhance your <strong className="text-amber-500">wardrobe</strong>.</p>
 
           <div className="flex flex-col scrollContainer animate-pulse ">
-            {[1, 2, 3].map((post) => (
-                <div key={post._id} className="mb-4 bg-gray-800 rounded-lg p-4 shadow-md ">
+            {[1, 2, 3].map((post,index) => (
+                <div key={index} className="mb-4 bg-gray-800 rounded-lg p-4 shadow-md ">
                     <Rating
                         size='large'
                         sx={{
@@ -22,7 +22,7 @@ export default async function CommentListSkeleton() {
                             },
                         }}
                         value={post.rating}
-                        marginTop={2}
+                        margintop={2}
                     />
                     <p className="text-slate-300 text-lg font-semibold mt-2">{post.name}</p>
                     <p className="text-slate-300">{post.comment}</p>

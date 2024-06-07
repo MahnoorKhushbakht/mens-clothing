@@ -219,7 +219,7 @@ const Contact = () => {
                       </ErrorMessage>
                     </div>
                   </ThemeProvider>
-                  <Box display="flex" justifyContent="center" marginTop="20px">
+                  <Box display="flex" justifyContent="center" margintop="20px">
                   <Button
                     type="submit"
                     sx={{

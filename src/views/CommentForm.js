@@ -91,7 +91,7 @@ export default function CommentForm({ slug, userName }) {
               value={formData.rating}
               onChange={handleChange}
               required
-              marginTop='2'
+              margintop='2'
             />
           </div> 
       <div className="flex">

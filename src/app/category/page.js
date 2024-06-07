@@ -16,8 +16,8 @@ export default function Category() {
       Explore now to elevate your wardrobe with the latest trends and timeless classics!
       </p>
       <ul className='grid grid-cols-2 gap-4 '>
-        {category.map((categoryItem) => (
-          <li key={categoryItem.slug}>
+        {category.map((categoryItem,index) => (
+          <li key={index}>
             <Link href={`/category/${categoryItem.slug}`} style={{ textDecoration: 'none' }}>
               <Paper 
                 className='drop-shadow-sm w-32 h-24 flex items-center justify-center bg-gray-200 text-gray-800 hover:bg-gray-400 disabled:bg-slate-500' 

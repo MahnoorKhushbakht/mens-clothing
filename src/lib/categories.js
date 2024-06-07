@@ -43,7 +43,7 @@ export async function getSlugs() {
 
 export async function getComments(slug) {
     console.log('slug',slug)
-    const postsResponse = await fetch('http://localhost:3000/api/posts', { next: { cache: 'no-store' } });
+    const postsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL_Site}api/posts`, { next: { cache: 'no-store' } });
     const posts = await postsResponse.json();
     const filteredPosts = posts.data.filter(post => post.slug === slug);
 
@@ -72,7 +72,7 @@ export async function getSearch(slug) {
   // Fetch cart data
   export async function getCartData() {
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_API_URL_Cart || 'http://localhost:3000/api/cart');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_Site}api/cart`)
       console.log('Response:', response);
   
       if (!response.ok) {

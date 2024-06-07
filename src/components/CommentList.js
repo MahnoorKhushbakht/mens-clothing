@@ -31,7 +31,7 @@ export default async function CommentList({slug}) {
                             },
                         }}
                         value={post.rating}
-                        marginTop={2}
+                        margintop={2}
                     />
                     <p className="text-white text-lg font-semibold mt-2">{post.name}</p>
                     <p className="text-white">

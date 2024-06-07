@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <main style={{ flex: '1 0 auto', marginLeft: '20px', marginRight: '20px' }}>
           {children}
         </main>
-        <footer style={{ marginTop: 'auto' }}>
+        <footer style={{ margintop: 'auto' }}>
           <Footer/>
         </footer>
       </body>
