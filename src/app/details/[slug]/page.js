@@ -12,6 +12,7 @@ import CommentListSkeleton from '@/components/CommentListSkeleton';
 import ShareLinkButton from '@/components/ShareLinkButton';
 import CommentForm from '@/views/CommentForm';
 import SkeletonSuspense from '@/components/Skeleton';
+import SpecsBtn from '@/components/SpecsBtn';
 
 
 // export async function generateStaticParams() {
@@ -42,7 +43,7 @@ export default async function Details({ params: { slug } }) {
 
   return (
     <div className="min-h-screen">
-      <div className="flex flex-col p-8">
+      <div className="flex flex-col p-2 md:p-8">
         {posts.map((post) => (
           <div key={post.id}>
             {parseHTMLContent(post.content.rendered).map((content, index) => (
@@ -67,12 +68,14 @@ export default async function Details({ params: { slug } }) {
                     <ShareLinkButton/>
                   </div>
                   <p className="text-white w-full md:w-3/4">{content.summary}</p>
+                  <SpecsBtn>
                   <div 
                     className="text-white bg-gray-900 rounded p-2 w-auto border border-x-white" 
                     style={{ display: 'inline-block' }}
                   >
                     <div dangerouslySetInnerHTML={{ __html: content.table }} />
                   </div>
+                  </SpecsBtn>
                   <p className="bg-gray-600 text-white p-2 rounded w-32 md:w-1/5 flex items-center justify-center text-lg shadow-lg">
                     {`Price: ${content.price}`} Rs
                   </p>
