@@ -55,24 +55,24 @@ export default function CartTable({ userId }) {
     <div className='flex justify-center text-2xl md:text-4xl py-2'>
   <h1>Cart</h1>
 </div>
-          <div className="overflow-x-auto mx-4 md:mx-8">
+          <div className="overflow-x-auto mx-2 md:mx-4">
             <table className="table-auto w-full">
               <thead>
                 <tr>
-                  <th className="px-4 py-2">Product Name</th>
-                  <th className="px-4 py-2">Quantity</th>
-                  <th className="px-4 py-2">Price</th>
-                  <th className="px-4 py-2">Actions</th>
+                  <th className="px-2 py-1">Product Name</th>
+                  <th className="px-2 py-1">Quantity</th>
+                  <th className="px-2 py-1">Price</th>
+                  <th className="px-2 py-1">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredData.length > 0 ? (
                   filteredData.map((cart, index) => (
                     <tr key={index}>
-                      <td className="border px-4 py-2">{cart.product}</td>
-                      <td className="border px-4 py-2">{cart.quantity}</td>
-                      <td className="border px-4 py-2">{`${cart.price} Rs`}</td>
-                      <td className="border px-4 py-2">
+                      <td className=" px-2 py-1">{cart.product}</td>
+                      <td className=" px-2 py-1">{cart.quantity}</td>
+                      <td className=" px-2 py-1">{`${cart.price} Rs`}</td>
+                      <td className=" px-2 py-1">
                         <Button colorScheme='red' onClick={() => handleDelete(cart._id)}>
                           Delete
                         </Button>

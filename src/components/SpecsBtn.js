@@ -9,7 +9,7 @@ export default function SpecsBtn({ children }) {
   };
 
   return (
-    <div className='text-white font-bold mb-2 '>
+    <div className='text-white font-bold mb-2 mt-2 '>
         SPECIFICATION
       <button
         onClick={toggleVisibility}
