@@ -68,7 +68,6 @@ export default function CartTable({ userId }) {
       ) : (
         <TableContainer>
           <Table variant='striped' colorScheme='black'>
-            <TableCaption>All Right Reserved</TableCaption>
             <Thead>
               <Tr>
                 <Th>Product Name</Th>

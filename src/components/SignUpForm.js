@@ -75,9 +75,9 @@ export default function SignUpForm() {
             )}
             <form onSubmit={handleSubmit}
                 className="flex flex-col gap-2  m-5 bg-gray-900
-                max-w-screen-sm mt-3 px-3 py-4 rounded">
+                w-full mt-3 px-3 py-4 rounded">
                 <div className="flex">
-                    <label htmlFor="nameField" className="shrink-0 ">
+                    <label htmlFor="nameField" className="shrink-1 mr-2">
                         Name
                     </label>
                     <input id="nameField" name="name" type="text" placeholder='Name'
@@ -95,7 +95,7 @@ export default function SignUpForm() {
                     />
                 </div>
                 <div className="flex">
-                    <label htmlFor="passwordField" className="shrink-0 ">
+                    <label htmlFor="passwordField" className="shrink-1 mr-2">
                         Password
                     </label>
                     <input id="passwordField" name="password" type="password"placeholder='Password'
