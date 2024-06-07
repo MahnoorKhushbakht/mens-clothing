@@ -60,53 +60,67 @@ export default function SignUpForm() {
     };
 
     return (
-        <div>
+        <div className="flex flex-col items-center">
             {success && (
-                <Alert variant="filled" onClose={() => setSuccess(false)} className='flex justify-center' severity="success"  style={{ width: '50%', position: 'fixed', top: 0, left: '25%', right: '25%', zIndex: 1000 }}>
-                <AlertTitle>Success</AlertTitle>
+                <Alert variant="filled" onClose={() => setSuccess(false)} severity="success" style={{ width: '90%', maxWidth: '500px', zIndex: 1000 }}>
+                    <AlertTitle>Success</AlertTitle>
                     Welcome
                 </Alert>
             )}
             {error && (
-                <Alert variant="filled" onClose={() => setError(false)} className='flex justify-center' severity="error"  style={{ width: '50%', position: 'fixed', top: 0, left: '25%', right: '25%', zIndex: 1000 }}>
+                <Alert variant="filled" onClose={() => setError(false)} severity="error" style={{ width: '90%', maxWidth: '500px', zIndex: 1000 }}>
                     <AlertTitle>Error</AlertTitle>
                     Something Went Wrong
                 </Alert>
             )}
-            <form onSubmit={handleSubmit}
-                className="flex flex-col gap-2  m-5 bg-gray-900
-                w-full mt-3 px-3 py-4 rounded">
-                <div className="flex">
-                    <label htmlFor="nameField" className="shrink-1 mr-2">
-                        Name
-                    </label>
-                    <input id="nameField" name="name" type="text" placeholder='Name'
-          className="border px-2 py-1 text-gray-400 bg-gray-300  w-full" value={formData.name}
-                        onChange={handleChange} disabled={loading} required
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 m-5 bg-gray-900 w-full max-w-md px-6 py-8 rounded">
+                <div className="flex flex-col">
+                    <label htmlFor="nameField" className="mb-1 text-gray-400">Name</label>
+                    <input
+                        id="nameField"
+                        name="name"
+                        type="text"
+                        placeholder="Name"
+                        className="border px-3 py-2 text-gray-900 bg-gray-300 rounded w-full"
+                        value={formData.name}
+                        onChange={handleChange}
+                        disabled={loading}
+                        required
                     />
                 </div>
-                <div className="flex">
-                    <label htmlFor="emailField" className="shrink-0 ">
-                        Email
-                    </label>
-                    <input id="emailField" name="email" type="email"placeholder='user@example.com'
-          className="border px-2 py-1 text-gray-400 bg-gray-300  w-full" value={formData.email}
-                        onChange={handleChange} disabled={loading} required
+                <div className="flex flex-col">
+                    <label htmlFor="emailField" className="mb-1 text-gray-400">Email</label>
+                    <input
+                        id="emailField"
+                        name="email"
+                        type="email"
+                        placeholder="user@example.com"
+                        className="border px-3 py-2 text-gray-900 bg-gray-300 rounded w-full"
+                        value={formData.email}
+                        onChange={handleChange}
+                        disabled={loading}
+                        required
                     />
                 </div>
-                <div className="flex">
-                    <label htmlFor="passwordField" className="shrink-1 mr-2">
-                        Password
-                    </label>
-                    <input id="passwordField" name="password" type="password"placeholder='Password'
-          className="border px-2 py-1 text-gray-400 bg-gray-300  w-full" value={formData.password}
-                        onChange={handleChange} disabled={loading} required
+                <div className="flex flex-col">
+                    <label htmlFor="passwordField" className="mb-1 text-gray-400">Password</label>
+                    <input
+                        id="passwordField"
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        className="border px-3 py-2 text-gray-900 bg-gray-300 rounded w-full"
+                        value={formData.password}
+                        onChange={handleChange}
+                        disabled={loading}
+                        required
                     />
                 </div>
-                <button type="submit"
-                    className="bg-gray-400 rounded px-2 py-1 self-center text-gray-800 w-32 hover:bg-gray-200
-                               disabled:bg-slate-500 disabled:cursor-not-allowed"
-                    disabled={loading}>
+                <button
+                    type="submit"
+                    className="bg-gray-400 rounded px-4 py-2 text-gray-800 hover:bg-gray-200 disabled:bg-slate-500 disabled:cursor-not-allowed"
+                    disabled={loading}
+                >
                     {loading ? 'Submitting...' : 'Submit'}
                 </button>
             </form>

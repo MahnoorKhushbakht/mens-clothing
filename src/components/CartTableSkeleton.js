@@ -11,7 +11,7 @@ import {
   Td,
   TableCaption,
   TableContainer,
-  ChakraProvider,Button
+  ChakraProvider,Skeleton
 } from '@chakra-ui/react';
 
 
@@ -31,20 +31,19 @@ export default function CartTableSkeleton() {
           </Tr>
         </Thead>
         <Tbody>
-          {
-            [1, 2].map((cart, index) => (
+        {[1, 2].map((cart, index) => (
               <Tr key={index}>
-                <Td>--</Td>
-                <Td>--</Td>
                 <Td>
-                  <Button className='bg-red-200' onClick={() => handleDelete(cart._id)}>
-                    Delete
-                  </Button>
+                  <Skeleton height="20px" />
+                </Td>
+                <Td>
+                  <Skeleton height="20px" />
+                </Td>
+                <Td>
+                  <Skeleton height="20px" />
                 </Td>
               </Tr>
-              
-            ))
- }
+            ))}
         </Tbody>
         
       </Table>

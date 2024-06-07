@@ -1,11 +1,10 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { getCartData, getId } from '@/lib/categories';
+import { getCartData } from '@/lib/categories';
 import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
@@ -17,8 +16,6 @@ import {
   Stack
 } from '@chakra-ui/react';
 import CartTableSkeleton from './CartTableSkeleton';
-
-
 
 export default function CartTable({ userId }) {
   const [data, setData] = useState([]);
@@ -66,7 +63,7 @@ export default function CartTable({ userId }) {
       {loading ? (
         <CartTableSkeleton/>
       ) : (
-        <TableContainer>
+        <Stack spacing={4} p={4} w="100%" maxW="800px" mx="auto">
           <Table variant='striped' colorScheme='black'>
             <Thead>
               <Tr>
@@ -97,15 +94,15 @@ export default function CartTable({ userId }) {
               )}
             </Tbody>
           </Table>
-        </TableContainer>
-      )}
-      <Button
+          <Button
         type="submit"
-        className="bg-gray-400 rounded px-2 py-1 self-center text-gray-800 w-32 hover:bg-gray-200 disabled:bg-slate-500 disabled:cursor-not-allowed"
+        className="bg-gray-800 rounded px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
         isDisabled={filteredData.length === 0}
       >
         CheckOut
       </Button>
+        </Stack>
+      )}
     </ChakraProvider>
   );
 }
