@@ -8,11 +8,10 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
   ChakraProvider,
   Button,
-Box
+  Box
 } from '@chakra-ui/react';
 import CartTableSkeleton from './CartTableSkeleton';
 import Layout from './Layout';
@@ -61,54 +60,53 @@ export default function CartTable({ userId }) {
   return (
     <ChakraProvider>
       {loading ? (
-        <CartTableSkeleton/>
+        <CartTableSkeleton />
       ) : (
         <Layout>
-       <div className='flex justify-center'>
-  <h1>Cart</h1>
-</div>
-<Box mx={{ base: 4, md: 8 }} overflowX="auto">
-          <Table variant='simple' marginLeft='5px' marginRight='5px' colorScheme='black' className='w-80' size={{ base: 'sm', md: 'md', lg: 'lg' }}>
-            <Thead>
-              <Tr>
-                <Th>Product Name</Th>
-                <Th>Quantity</Th>
-                <Th>Price</Th>
-                <Th>Actions</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {filteredData.length > 0 ? (
-                filteredData.map((cart, index) => (
-                  <Tr key={index}>
-                    <Td>{cart.product}</Td>
-                    <Td>{cart.quantity}</Td>
-                    <Td>{`${cart.price} Rs`}</Td>
-                    <Td>
-                      <Button colorScheme='red' onClick={() => handleDelete(cart._id)}>
-                        Delete
-                      </Button>
-                    </Td>
-                  </Tr>
-                ))
-              ) : (
+          <div className='flex justify-center'>
+            <h1>Cart</h1>
+          </div>
+          <Box mx={{ base: 4, md: 8 }} overflowX="auto">
+            <Table variant='simple' marginLeft='5px' marginRight='5px' colorScheme='black' className='w-80' size={{ base: 'sm', md: 'md', lg: 'lg' }}>
+              <Thead>
                 <Tr>
-                  <Td colSpan="4">No data available</Td>
+                  <Th px={{ base: 1, md: 4 }}>Product Name</Th>
+                  <Th px={{ base: 1, md: 4 }}>Quantity</Th>
+                  <Th px={{ base: 1, md: 4 }}>Price</Th>
+                  <Th px={{ base: 1, md: 4 }}>Actions</Th>
                 </Tr>
-              )}
-            </Tbody>
-          </Table>
-        </Box>
+              </Thead>
+              <Tbody>
+                {filteredData.length > 0 ? (
+                  filteredData.map((cart, index) => (
+                    <Tr key={index}>
+                      <Td px={{ base: 1, md: 4 }}>{cart.product}</Td>
+                      <Td px={{ base: 1, md: 4 }}>{cart.quantity}</Td>
+                      <Td px={{ base: 1, md: 4 }}>{`${cart.price} Rs`}</Td>
+                      <Td px={{ base: 1, md: 4 }}>
+                        <Button colorScheme='red' onClick={() => handleDelete(cart._id)}>
+                          Delete
+                        </Button>
+                      </Td>
+                    </Tr>
+                  ))
+                ) : (
+                  <Tr>
+                    <Td colSpan="4" textAlign="center">No data available</Td>
+                  </Tr>
+                )}
+              </Tbody>
+            </Table>
+          </Box>
           <Button
-        type="submit"
-        className="bg-gray-800 rounded mt-8 px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
-        isDisabled={filteredData.length === 0}
-      >
-        CheckOut
-      </Button>
-      </Layout>
+            type="submit"
+            className="bg-gray-800 rounded mt-8 px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
+            isDisabled={filteredData.length === 0}
+          >
+            CheckOut
+          </Button>
+        </Layout>
       )}
-     
     </ChakraProvider>
   );
 }
