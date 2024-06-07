@@ -21,7 +21,9 @@ export default function CartTableSkeleton() {
   return (
     <ChakraProvider>
     <TableContainer className='animate-pulse'>
-    <h1>Cart</h1>
+    <div className='flex justify-center'>
+  <h1>Cart</h1>
+</div>
       <Table variant='striped' colorScheme='black'>
         <Thead>
           <Tr>

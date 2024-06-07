@@ -65,8 +65,10 @@ export default function CartTable({ userId }) {
         <CartTableSkeleton/>
       ) : (
         <Layout>
-            <h1>Cart</h1>
-          <Table variant='striped' colorScheme='black'>
+       <div className='flex justify-center'>
+  <h1>Cart</h1>
+</div>
+          <Table variant='striped' colorScheme='black' className='w-80'>
             <Thead>
               <Tr>
                 <Th>Product Name</Th>
