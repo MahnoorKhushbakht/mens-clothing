@@ -11,6 +11,7 @@ import Cart from '@/components/Cart';
 import CommentListSkeleton from '@/components/CommentListSkeleton';
 import ShareLinkButton from '@/components/ShareLinkButton';
 import CommentForm from '@/views/CommentForm';
+import SkeletonSuspense from '@/components/Skeleton';
 
 
 // export async function generateStaticParams() {
@@ -48,7 +49,7 @@ export default async function Details({ params: { slug } }) {
               <div key={index} className="flex flex-col md:flex-row justify-center items-center">
                 <ImageZoom>
                   <div className="flex flex-col items-center w-full">
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<SkeletonSuspense/>}>
                     <Image
         src={content.imageUrl}
         alt="Product Detail"

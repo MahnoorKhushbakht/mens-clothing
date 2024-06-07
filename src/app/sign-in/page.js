@@ -11,7 +11,9 @@ export default function SignInPage() {
   return (
   <Layout>
       <h1>Sign In</h1>
+      <div className='w-full flex justify-center align-center'>
       <SignInForm />
+      </div>
       <div className="py-3">
         Not yet registered?{' '}
         <Link href="/sign-up" className="text-gray-400 hover:underline">

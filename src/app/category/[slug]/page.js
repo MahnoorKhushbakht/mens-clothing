@@ -9,13 +9,10 @@ import Typography from '@mui/material/Typography';
 import CardData from '@/components/CardContent';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-
-
-
-
+import SkeletonSuspense from '@/components/Skeleton';
+import { Suspense } from 'react';
 
 export default async function ReviewPage({ params: { slug } }) {
-  
         const posts = await getCategories(slug);
      
 
@@ -52,6 +49,7 @@ if(!posts){
 
                   </Typography>
                   <div className='flex justify-center m-auto p-1 items-center'>
+                  <Suspense fallback={<SkeletonSuspense/>}>
    <Image
         src={content.imageUrl}
         alt="Product Detail"
@@ -60,6 +58,7 @@ if(!posts){
         className=" max-w-full h-auto mt-10"
         quality={100} // Set quality to 100 for best quality
       />
+      </Suspense>
 </div>
 
                   <Typography variant="body2">
