@@ -106,7 +106,7 @@ export default function CommentForm({ slug, userName }) {
         <label htmlFor="commentField" className="shrink-0 w-32 text-gray-300 ">
           Comment
         </label>
-        <input id="commentField" name="comment" type="text" value={formData.comment} onChange={handleChange} required multiline
+        <input id="commentField" name="comment" type="text" value={formData.comment} onChange={handleChange} required multiline="true"
           className="border-none px-2  text-gray-300 rounded py-1 bg-gray-800 w-full" placeholder='Enter Comment'
         />
       </div>

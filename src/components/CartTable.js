@@ -55,7 +55,7 @@ export default function CartTable({ userId }) {
     <div className='flex justify-center text-2xl md:text-4xl py-2'>
   <h1>Cart</h1>
 </div>
-          <div className="overflow-x-auto mx-2 md:mx-4">
+          <div className="overflow-x-auto mx-3 md:mx-6">
             <table className="table-auto w-full">
               <thead>
                 <tr>
@@ -69,10 +69,10 @@ export default function CartTable({ userId }) {
                 {filteredData.length > 0 ? (
                   filteredData.map((cart, index) => (
                     <tr key={index}>
-                      <td className=" px-2 py-1">{cart.product}</td>
-                      <td className=" px-2 py-1">{cart.quantity}</td>
-                      <td className=" px-2 py-1">{`${cart.price} Rs`}</td>
-                      <td className=" px-2 py-1">
+                      <td className="border px-2 py-1">{cart.product}</td>
+                      <td className="border px-2 py-1">{cart.quantity}</td>
+                      <td className="border px-2 py-1">{`${cart.price} Rs`}</td>
+                      <td className="border px-2 py-1">
                         <Button colorScheme='red' onClick={() => handleDelete(cart._id)}>
                           Delete
                         </Button>
@@ -89,7 +89,7 @@ export default function CartTable({ userId }) {
           </div>
           <button
             type="submit"
-            className="bg-gray-800 rounded mt-8 px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
+            className="bg-gray-800 rounded mt-2 px-2 py-1 self-center text-gray-300 w-32 hover:bg-gray-900 disabled:bg-slate-500 disabled:cursor-not-allowed"
             isDisabled={filteredData.length === 0}
           >
             CheckOut

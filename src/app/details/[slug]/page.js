@@ -56,7 +56,9 @@ export default async function Details({ params: { slug } }) {
         alt="Product Detail"
         width={300}
         height={300}
-        className=" max-w-full h-auto mt-10"
+    
+                     
+        className="object-cover  mt-10"
         quality={100} // Set quality to 100 for best quality
       />
                     </Suspense>
