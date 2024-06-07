@@ -8,22 +8,22 @@ export default function SignInForm() {
 
   return (
     <form onSubmit={handleSubmit}
-      className="flex flex-col gap-2  m-5
-                 max-w-screen-sm mt-3 px-3 py-3 rounded">
+      className="flex flex-col gap-2  m-5 bg-gray-900
+                 max-w-screen-sm mt-3 px-3 py-4 rounded">
       <div className="flex">
         <label htmlFor="emailField" className="shrink-0 w-32">
           Email
         </label>
-        <input id="emailField" name="email" type="email"
-          className="border px-2 py-1 text-black rounded w-full"
+        <input id="emailField" name="email" type="email" placeholder='user@example.com'
+          className="border px-2 py-1 text-gray-400 bg-gray-300  w-full"
         />
       </div>
       <div className="flex">
         <label htmlFor="passwordField" className="shrink-0 w-32">
           Password
         </label>
-        <input id="passwordField" name="password" type="password"
-          className="border px-2  text-black py-1 rounded w-full"
+        <input id="passwordField" name="password" type="password" placeholder='Password'
+          className="border px-2 py-1 text-gray-400 bg-gray-300  w-full"
         />
       </div>
       {Boolean(state.error) && (

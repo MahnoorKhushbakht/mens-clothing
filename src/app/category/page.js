@@ -11,17 +11,18 @@ export default function Category() {
 
   return (
     <Layout>
-      <h1 className='mb-4 text-3xl font-bold'>Categories!!</h1>
-      <p className="text-center italic mb-6 text-lg">
-        Explore now to elevate your wardrobe with the latest trends and timeless classics!
+     
+      <h1 className='mb-4'>Categories!!</h1>
+      <p className="text-center italic mb-6 ">
+      Explore now to elevate your wardrobe with the latest trends and timeless classics!
       </p>
-      <ul className='grid grid-cols-2 gap-4'>
-        {category.map((categoryItem, index) => (
+      <ul className='grid grid-cols-2 md:grid-cols-3 gap-4 '>
+        {category.map((categoryItem,index) => (
           <li key={index}>
-            <Link href={`/category/${categoryItem.slug}`} passHref>
-              <Paper
-                className='drop-shadow-sm w-40 h-28 flex items-center justify-center bg-gray-200 text-gray-800 hover:bg-gray-400 transform hover:scale-105 transition-transform duration-300 rounded-lg p-4'
-                elevation={5}
+            <Link href={`/category/${categoryItem.slug}`} style={{ textDecoration: 'none' }}>
+              <Paper 
+                className='drop-shadow-sm w-32 h-24 flex items-center justify-center bg-gray-800 text-gray-200 hover:bg-gray-900 disabled:bg-slate-500' 
+                elevation={3}
               >
                 {categoryItem.name}
               </Paper>
