@@ -46,6 +46,14 @@ export default function CommentForm({ slug, userName }) {
           }
         } catch (error) {
           setAlert({ message: 'Something went wrong! Please try again later.', type: 'error' });
+          if (error.name === 'MongoError' && error.code === 11000) {
+            // User has already commented on this post
+            throw new Error('You have already commented on this post');
+          } else {
+            // Other errors
+            console.error('Error creating comment:', error.message);
+            throw new Error('An error occurred while creating the comment');
+          }
         }
     
         if (alertRef.current) {

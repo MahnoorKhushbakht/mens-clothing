@@ -248,7 +248,7 @@ const Contact = () => {
                     <Alert severity="success" 
     sx={{
       backgroundColor: '#d1d5db',  
-      color: '#d1d5db',        
+      color: '#111827',        
       '& .MuiAlert-icon': {
         color: 'green',        
       },
@@ -268,7 +268,7 @@ const Contact = () => {
     severity="error"
     sx={{
       backgroundColor: '#d1d5db',  
-      color: '#d1d5db', 
+      color: '#111827', 
       fontFamily: 'Helvetica, Arial',           
       '& .MuiAlert-icon': {
         color: 'red',  
