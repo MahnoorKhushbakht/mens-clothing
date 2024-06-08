@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import NavBar from '../components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "@/components/Footer";
@@ -11,11 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-r from-gray-800 to-gray-950" >
+      <body  >
         <header>
           <NavBar/>
         </header>
-        <main style={{ flex: '1 0 auto', marginLeft: '20px', marginRight: '20px' }}>
+        <main style={{ flex: '1 0 auto' }}>
           {children}
         </main>
         <footer style={{ margintop: 'auto' }}>
@@ -25,3 +26,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+// className="bg-gradient-to-r from-gray-800 to-gray-950"

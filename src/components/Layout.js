@@ -3,6 +3,7 @@ export default function Layout({children}){
       <div
       className="
        bg-center 
+       bg-gradient-to-r from-gray-800 to-gray-950
        backdrop-opacity-10 
        bg-cover min-h-screen 
        flex flex-col justify-center

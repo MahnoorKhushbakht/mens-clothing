@@ -31,6 +31,12 @@ export default async function NavBar() {
           </li>
         </ul>
         <ul className="flex gap-3 bg-transparent  text-base md:text-lg m-2">
+        <li>
+          <NavLink href="/about" >
+          About
+
+          </NavLink>
+          </li>
           {user ? (
             <li className='text-white'>
               {/* {user.email} */}
