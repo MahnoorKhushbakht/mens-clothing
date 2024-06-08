@@ -42,8 +42,8 @@ export default async function Details({ params: { slug } }) {
   }
 
   return (
-    <div className="min-h-screen">
-      <div className="flex flex-col p-2 md:p-8">
+    <div className="min-h-screen  bg-gradient-to-r from-gray-800 to-gray-950">
+      <div className="flex flex-col p-2 md:p-8  md:ml-20 md:mr-20 ml-5 mr-5">
         {posts.map((post) => (
           <div key={post.id}>
             {parseHTMLContent(post.content.rendered).map((content, index) => (

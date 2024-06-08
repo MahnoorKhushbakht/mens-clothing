@@ -21,7 +21,7 @@ if(!posts){
 }
 
   return (
-    <div className=" min-h-screen flex flex-col flex-wrap justify-center items-center">
+    <div className=" bg-gradient-to-r from-gray-800 to-gray-950  min-h-screen flex flex-col flex-wrap justify-center items-center">
 
               {((posts.length === 0)) ? notFound()
         : 
@@ -30,6 +30,7 @@ if(!posts){
         justify="center"
         align="center"
         p={4}
+        marginTop='20px'
         className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-4'
         wrap="wrap"
       >

@@ -51,8 +51,8 @@ export default function CartTable({ userId }) {
       {loading ? (
         <CartTableSkeleton />
       ) : (
-        <Layout>
-    <div className='flex justify-center text-2xl md:text-4xl py-2'>
+    <>
+    <div className='flex bg-transparent justify-center text-2xl md:text-4xl py-2'>
   <h1>Cart</h1>
 </div>
           <div className="overflow-x-auto mx-3 md:mx-6">
@@ -94,7 +94,7 @@ export default function CartTable({ userId }) {
           >
             CheckOut
           </button>
-        </Layout>
+       </>
       )}
     </>
   );
