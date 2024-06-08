@@ -7,7 +7,7 @@ export default function SignInForm() {
   const [state, handleSubmit] = useFormState(signInAction);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col ml-2 mr-2 items-center">
       <form onSubmit={handleSubmit}
         className="flex flex-col gap-4 m-5 bg-gray-900
                    w-full max-w-md px-6 py-8 rounded">

@@ -60,7 +60,7 @@ export default function SignUpForm() {
     };
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col ml-2 mr-2 items-center">
             {success && (
                 <Alert variant="filled" onClose={() => setSuccess(false)} severity="success" style={{ width: '90%', maxWidth: '500px', zIndex: 1000 }}>
                     <AlertTitle>Success</AlertTitle>

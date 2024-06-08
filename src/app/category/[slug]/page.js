@@ -31,7 +31,7 @@ if(!posts){
         align="center"
         p={4}
         marginTop='20px'
-        className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-4'
+        className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 ml-2 mr-2'
         wrap="wrap"
       >
         {posts.map((post) => (
