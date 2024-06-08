@@ -10,7 +10,7 @@ export async function GET() {
     return NextResponse.json({ data: fields });
   } catch (error) {
     console.error("GET Error:", error);
-    return NextResponse.status(500).json({ error: error.message });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
@@ -18,18 +18,18 @@ export async function POST(request) {
   try {
     const user = await getUserFromSession();
     if (!user) {
-      throw new Error('Unauthorized');
+      return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
     }
     const body = await request.json();
     const { name, comment, rating, slug } = body;
     console.log("Received POST request with data:", name, comment, rating, slug);
-   await dbConnect();
+    await dbConnect();
     const field = await Field.create({
       name,
       comment,
       rating,
       slug,
-      user_id: user.id, 
+      user_id: user.id,
     });
     console.log("Saved field:", field);
     await Sign.findByIdAndUpdate(user.id, { $push: { fields: field._id } });
@@ -37,10 +37,9 @@ export async function POST(request) {
   } catch (error) {
     console.error("field Error:", error);
     if (error.name === 'MongoError' && error.code === 11000) {
-      res.status(400).json({ message: 'You have already commented on this post', code: 11000 });
+      return NextResponse.json({ message: 'You have already commented on this post', code: 11000 }, { status: 400 });
     } else {
-      console.error('Error creating comment:', error);
-      res.status(500).json({ message: 'An error occurred while creating the comment' });
+      return NextResponse.json({ message: 'An error occurred while creating the comment' }, { status: 500 });
     }
   }
 }
