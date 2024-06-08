@@ -68,7 +68,7 @@ const Contact = () => {
 
   return (
     <Layout>
-<Card className='bg-gray-800 w-full flex justify-center'>
+<Card className='bg-gray-800 md:w-1/2 w-96 flex justify-center'>
           <CardContent className=' w-4/5'>
           <Box textAlign="center">
               <Typography

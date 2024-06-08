@@ -1,7 +1,7 @@
 
 export default function AboutPage(){
     return(
-      <div className=" backdrop-opacity-10 p-10 bg-cover flex flex-col text-gray-300">
+      <div className="bg-gradient-to-r from-gray-800 to-gray-950 backdrop-opacity-10 p-10 bg-cover flex flex-col text-gray-300">
           {/* <div className='border-4 border-gray-800/50 shadow-lg shadow-gray-300/40'> */}
             <div spacing={1} align="start" px={4}>
               <h2 className='text-lg md:text-xl antialiased font-bold text-shadow'>About Us:</h2>
