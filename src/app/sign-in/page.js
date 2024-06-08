@@ -10,7 +10,9 @@ export const metadata = {
 export default function SignInPage() {
   return (
   <Layout>
-      <h1>Sign In</h1>
+          <div className='flex bg-transparent justify-center text-2xl md:text-4xl py-2'>
+  <h1>Sign In</h1>
+</div>
       <div className='w-full flex justify-center align-center'>
       <SignInForm />
       </div>

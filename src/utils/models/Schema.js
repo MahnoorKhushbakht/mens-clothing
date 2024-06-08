@@ -27,7 +27,6 @@ const fieldSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true, 
   },
   comment: {
     type: String,
