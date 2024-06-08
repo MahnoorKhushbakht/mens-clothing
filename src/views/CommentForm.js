@@ -28,7 +28,7 @@ export default function CommentForm({ slug, userName }) {
     
       const handleSubmit = async (e) => {
         e.preventDefault();
-    
+        
         try {
           const response = await fetch(apiUrl, {
             method: 'POST',
@@ -42,18 +42,16 @@ export default function CommentForm({ slug, userName }) {
             setAlert({ message: 'Data saved successfully!', type: 'success' });
             setFormData({ name: userName, comment: '', rating: 0, slug: slug });
           } else {
-            throw new Error('Server responded with an error');
+            const errorData = await response.json();
+            if (errorData.code === 11000) {
+              setAlert({ message: 'You have already commented on this post', type: 'error' });
+            } else {
+              setAlert({ message: 'Something went wrong! Please try again later.', type: 'error' });
+            }
           }
         } catch (error) {
-          setAlert({ message: 'Something went wrong! Please try again later.', type: 'error' });
-          if (error.name === 'MongoError' && error.code === 11000) {
-            // User has already commented on this post
-            throw new Error('You have already commented on this post');
-          } else {
-            // Other errors
-            console.error('Error creating comment:', error.message);
-            throw new Error('An error occurred while creating the comment');
-          }
+          console.error('Error creating comment:', error.message);
+          setAlert({ message: 'An error occurred while creating the comment', type: 'error' });
         }
     
         if (alertRef.current) {
@@ -64,6 +62,7 @@ export default function CommentForm({ slug, userName }) {
           setAlert({ message: '', type: '' });
         }, 3000);
       };
+    
     
   return (
     <div>

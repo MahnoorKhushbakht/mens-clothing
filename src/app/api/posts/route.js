@@ -36,6 +36,11 @@ export async function POST(request) {
     return NextResponse.json({ data: field });
   } catch (error) {
     console.error("field Error:", error);
-    return NextResponse.status(500).json({ error: error.message });
+    if (error.name === 'MongoError' && error.code === 11000) {
+      res.status(400).json({ message: 'You have already commented on this post', code: 11000 });
+    } else {
+      console.error('Error creating comment:', error);
+      res.status(500).json({ message: 'An error occurred while creating the comment' });
+    }
   }
 }
