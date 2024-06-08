@@ -10,8 +10,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // const setInitialTheme = process.env.noflash;
   return (
     <html lang="en">
+      {/* <head>
+      <meta charSet='utf-8' />
+            <script type="text/javascript" dangerouslySetInnerHTML={{ __html: process.env.noflash}} />
+      </head> */}
       <body  >
         <header>
           <NavBar/>
