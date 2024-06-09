@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <header>
           <NavBar/>
         </header>
-        <main style={{ flex: '1 0 auto' }}>
+        <main style={{ flex: '1 0 auto',backgroundColor: '#111827' }}>
           {children}
         </main>
         <footer style={{ margintop: 'auto' }}>
