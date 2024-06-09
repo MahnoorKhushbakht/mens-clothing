@@ -43,7 +43,7 @@ export default async function ReviewPage({ params: { slug } }) {
                       </Link>
                     </Typography>
                     <div className="flex justify-center m-auto p-1 items-center" style={{ backgroundColor: 'transparent' }}>
-                      <Image
+                      <img
                         src={content.imageUrl}
                         alt="Product Detail"
                         width={150}
