@@ -87,7 +87,7 @@ export default async function Details({ params: { slug } }) {
                   <div className="border bg-gray-700 mt-3 px-3 py-3 rounded">
                     <Link href="/sign-in" className="text-gray-200 hover:underline">
                       Sign in
-                    </Link> to add Items in Cart
+                    </Link> to add Items
                   </div>
                 )}
                 </div>

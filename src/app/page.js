@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="h-screen">
       <div className="relative w-full h-full">
-        <Slideshow />
+        {/* <Slideshow /> */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
           <h3 className="bg-clip-text text-transparent hover:bg-gradient-to-l bg-gradient-to-r from-gray-800 to-gray-900 text-3xl md:text-5xl font-extrabold">
             Tailored Gents
