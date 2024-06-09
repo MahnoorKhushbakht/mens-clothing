@@ -43,14 +43,14 @@ export default async function ReviewPage({ params: { slug } }) {
                       </Link>
                     </Typography>
                     <div className="flex justify-center m-auto p-1 items-center" style={{ backgroundColor: 'transparent' }}>
-                      <img
+                      <Image
                         src={content.imageUrl}
                         alt="Product Detail"
                         width={150}
                         height={150}
                         className="max-w-full h-auto mt-10"
                         quality={100}
-                        priority={true} // Preload the image
+                        priority={true} 
                       />
                     </div>
                     <Typography variant="body2">{content.summary}</Typography>
