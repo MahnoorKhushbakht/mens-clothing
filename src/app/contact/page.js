@@ -224,10 +224,10 @@ const Contact = () => {
                     type="submit"
                     sx={{
                       border:'2px solid #d1d5db',
-                      color: '#d1d5db',
+                      color: '#111827',
                       '&:hover': {
                         background: '#d1d5db',
-                        color: '#d1d5db',
+                        color: '#111827',
                       },
                       margintop: '20px',
                       marginBottom:'4px',
