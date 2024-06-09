@@ -114,9 +114,9 @@ export default function CommentForm({ slug, userName }) {
         </div>
         <button 
           type="submit" 
-          className="bg-gray-800 text-gray-200 rounded px-2 py-1 mt-3 outline-gray-300 outline outline-offset-1
-           w-32 
-            disabled:bg-slate-200 disabled:cursor-not-allowed"
+          className="bg-inherit rounded px-2 py-1 mt-3 outline-gray-300 outline outline-offset-1
+            text-gray-300 w-32 
+            disabled:bg-slate-500 disabled:cursor-not-allowed"
         >
           Comment <CommentIcon />
         </button>

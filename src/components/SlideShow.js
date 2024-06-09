@@ -11,14 +11,14 @@ const Slideshow = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
+    <div className="relative w-full h-screen overflow-hidden">
       {images.map((image, index) => (
         <div
           key={index}
@@ -26,14 +26,7 @@ const Slideshow = () => {
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {index === currentIndex && (
-            <img
-              src={image}
-              alt={`Slide ${index}`}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          )}
+          <img src={image} alt={`Slide ${index}`} className="w-full h-full object-cover" />
         </div>
       ))}
     </div>
