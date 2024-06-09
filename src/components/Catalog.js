@@ -15,7 +15,7 @@ export default function Catalog() {
       <p className="text-center text-gray-800 text-lg italic mb-6 w-80 md:w-full font-bold">
       Explore now to elevate your wardrobe!
       </p>
-      <ul className='grid grid-cols-1 md:grid-cols-3 gap-4 '>
+      <ul className='grid grid-cols-2 md:grid-cols-3 gap-4 '>
         {category.map((categoryItem,index) => (
           <li key={index}>
             <Link href={`/category/${categoryItem.slug}`} style={{ textDecoration: 'none' }}>
