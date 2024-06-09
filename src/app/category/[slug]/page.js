@@ -42,7 +42,7 @@ export default async function ReviewPage({ params: { slug } }) {
                         </svg>
                       </Link>
                     </Typography>
-                    <div className="flex justify-center m-auto p-1 items-center" style={{ backgroundColor: 'transparent' }}>
+                    {/* <div className="flex justify-center m-auto p-1 items-center" style={{ backgroundColor: 'transparent' }}>
                       <Image
                         src={content.imageUrl}
                         alt="Product Detail"
@@ -52,7 +52,7 @@ export default async function ReviewPage({ params: { slug } }) {
                         quality={100}
                         priority={true} 
                       />
-                    </div>
+                    </div> */}
                     <Typography variant="body2">{content.summary}</Typography>
                   </CardContent>
                 </CardData>
