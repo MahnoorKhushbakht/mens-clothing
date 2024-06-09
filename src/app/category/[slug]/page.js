@@ -9,7 +9,6 @@ import CardData from '@/components/CardContent';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
-
 export default async function ReviewPage({ params: { slug } }) {
   const posts = await getCategories(slug);
 
@@ -43,17 +42,16 @@ export default async function ReviewPage({ params: { slug } }) {
                         </svg>
                       </Link>
                     </Typography>
-                    <div className="flex justify-center m-auto p-1 items-center">
-                  
-                        <Image
-                          src={content.imageUrl}
-                          alt="Product Detail"
-                          width={150}
-                          height={150}
-                          className="max-w-full h-auto mt-10"
-                          quality={100}
-                        />
-                    
+                    <div className="flex justify-center m-auto p-1 items-center" style={{ backgroundColor: 'transparent' }}>
+                      <Image
+                        src={content.imageUrl}
+                        alt="Product Detail"
+                        width={150}
+                        height={150}
+                        className="max-w-full h-auto mt-10"
+                        quality={100}
+                        priority={true} // Preload the image
+                      />
                     </div>
                     <Typography variant="body2">{content.summary}</Typography>
                   </CardContent>

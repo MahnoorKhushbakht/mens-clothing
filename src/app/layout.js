@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           window.onload = function () {
             setTimeout(function() {
               document.body.style.display = "";        
-            }, 200);
+            }, 1000);
           }
         `}} />
       </head>
