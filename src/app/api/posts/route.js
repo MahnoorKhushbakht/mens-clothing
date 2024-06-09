@@ -24,6 +24,14 @@ export async function POST(request) {
     const { name, comment, rating, slug } = body;
     console.log("Received POST request with data:", name, comment, rating, slug);
     await dbConnect();
+
+    // Check if the user has already commented
+    const existingComment = await Field.findOne({ user_id: user.id });
+    if (existingComment) {
+      return NextResponse.json({ message: 'You have already commented', code: 11000 }, { status: 400 });
+    }
+
+    // Create new comment
     const field = await Field.create({
       name,
       comment,
@@ -37,7 +45,7 @@ export async function POST(request) {
   } catch (error) {
     console.error("field Error:", error);
     if (error.name === 'MongoError' && error.code === 11000) {
-      return NextResponse.json({ message: 'You have already commented on this post', code: 11000 }, { status: 400 });
+      return NextResponse.json({ message: 'You have already commented', code: 11000 }, { status: 400 });
     } else {
       return NextResponse.json({ message: 'An error occurred while creating the comment' }, { status: 500 });
     }

@@ -44,7 +44,7 @@ export default function CommentForm({ slug, userName }) {
       } else {
         const errorData = await response.json();
         if (errorData.code === 11000) {
-          setAlert({ message: 'You have already commented on this post', type: 'error' });
+          setAlert({ message: 'You have already commented', type: 'error' });
         } else {
           setAlert({ message: 'Something went wrong! Please try again later.', type: 'error' });
         }
@@ -114,9 +114,9 @@ export default function CommentForm({ slug, userName }) {
         </div>
         <button 
           type="submit" 
-          className="bg-inherit rounded px-2 py-1 mt-3 outline-gray-300 outline outline-offset-1
-            text-gray-300 w-32 
-            disabled:bg-slate-500 disabled:cursor-not-allowed"
+          className="bg-gray-800 text-gray-200 rounded px-2 py-1 mt-3 outline-gray-300 outline outline-offset-1
+           w-32 
+            disabled:bg-slate-200 disabled:cursor-not-allowed"
         >
           Comment <CommentIcon />
         </button>

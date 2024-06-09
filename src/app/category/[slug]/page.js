@@ -53,6 +53,15 @@ export default async function ReviewPage({ params: { slug } }) {
                         priority={true} 
                       />
                     </div> */}
+                                    <img
+                  style={{ display: 'block', margin: 'auto',padding:"2%" }}
+                  alt="details image"
+                  height="35%"
+                  width="35%"
+
+
+                  src={content.imageUrl}
+                />
                     <Typography variant="body2">{content.summary}</Typography>
                   </CardContent>
                 </CardData>

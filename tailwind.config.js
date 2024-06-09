@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/images/bg-img1.jpg')",
+        'hero-pattern': "url('/images/bg-img2.jpg')",
         // 'pattern': "url('./img/mensbg.jpg')",
       },
       colors: {
