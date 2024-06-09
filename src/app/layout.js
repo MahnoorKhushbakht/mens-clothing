@@ -10,25 +10,29 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // const setInitialTheme = process.env.noflash;
   return (
     <html lang="en">
-      {/* <head>
-      <meta charSet='utf-8' />
-            <script type="text/javascript" dangerouslySetInnerHTML={{ __html: process.env.noflash}} />
-      </head> */}
-      <body  >
+      <head>
+        <meta charSet='utf-8' />
+        <script type="text/javascript" dangerouslySetInnerHTML={{ __html: `
+          window.onload = function () {
+            setTimeout(function() {
+              document.body.style.display = "";        
+            }, 200);
+          }
+        `}} />
+      </head>
+      <body style={{ display: 'none' }}>
         <header>
           <NavBar/>
         </header>
-        <main style={{ flex: '1 0 auto',backgroundColor: '#111827' }}>
+        <main style={{ flex: '1 0 auto' }}>
           {children}
         </main>
-        <footer style={{ margintop: 'auto' }}>
+        <footer style={{ marginTop: 'auto' }}>
           <Footer/>
         </footer>
       </body>
     </html>
   );
 }
-// className="bg-gradient-to-r from-gray-800 to-gray-950"

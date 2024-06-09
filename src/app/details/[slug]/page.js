@@ -50,7 +50,7 @@ export default async function Details({ params: { slug } }) {
               <div key={index} className="flex flex-col md:flex-row justify-center items-center">
                 <ImageZoom>
                   <div className="flex flex-col items-center w-full">
-                    <Suspense fallback={<SkeletonSuspense/>}>
+           
                     <Image
         src={content.imageUrl}
         alt="Product Detail"
@@ -61,7 +61,7 @@ export default async function Details({ params: { slug } }) {
         className="object-cover  mt-10"
         quality={100} // Set quality to 100 for best quality
       />
-                    </Suspense>
+                
                   </div>
                 </ImageZoom>
                 <div className="w-full md:w-3/5 ml-0 md:ml-8 mt-4 md:mt-0">
@@ -81,7 +81,15 @@ export default async function Details({ params: { slug } }) {
                   <p className="bg-gray-600 text-white p-2 rounded w-32 md:w-1/5 flex items-center justify-center text-lg shadow-lg">
                     {`Price: ${content.price}`} Rs
                   </p>
+                  {user ? (
                   <Cart itemName={post.title.rendered} price={content.price} />
+                ) : (
+                  <div className="border bg-gray-700 mt-3 px-3 py-3 rounded">
+                    <Link href="/sign-in" className="text-gray-200 hover:underline">
+                      Sign in
+                    </Link> to add Items in Cart
+                  </div>
+                )}
                 </div>
               </div>
             ))}

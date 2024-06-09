@@ -4,8 +4,6 @@
 
 /* Set a consistent initial background color */
 body {
-  background-color: #111827; /* Adjust to your desired background color */
-  color: #e5e7eb; /* Adjust to your desired text color */
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
